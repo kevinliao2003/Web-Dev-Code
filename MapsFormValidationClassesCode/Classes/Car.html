@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Example</title>
+</head>
+
+<body>
+    <script>
+        class Car {
+            static dealership = "Terp Cars"; /* static public */
+            static #instances = 0;  /* static private */
+            
+            passengers = ["Driver"]; /* public */
+            
+            #tag;                   /* private */
+            #mileage;               /* private */
+
+            constructor(tag, mileage) {
+                this.#tag = tag;
+                this.#mileage = mileage;
+                Car.#instances++;
+            }
+
+            get tag() {
+                return this.#tag;
+            }
+
+            set tag(newTag) {
+                if (newTag == null) {
+                    document.writeln("<br><strong>Oops, cannot set tag to null</strong><br>")
+                } else {
+                    this.#tag = newTag;
+                }
+            }
+
+            displayInfo() {
+                document.writeln(this.#tag + ", " + this.#mileage);
+            }
+
+            static getInstances() {
+                return Car.#instances;
+            }
+            
+            [Symbol.toPrimitive]() {  /* Java's toString() */
+                return `${this.#tag} ${this.#mileage} Passengers: ${this.passengers}`;
+            }
+        }
+
+       
+        let car1 = new Car("abc", 22000);
+        document.writeln("Initial car info: ");
+        car1.displayInfo();
+
+        document.writeln(`<br>The tag value is ${car1.tag}`);
+        car1.tag = "newTagABC";
+        document.writeln(`<br>After assignment to tag, the tag value is ${car1.tag}`);
+
+        car1.tag = null; /* Setting tag to null */
+        document.writeln("After attempt to change tag to null: ");
+        car1.displayInfo();
+
+        let car2 = new Car("core1", 40000);
+        document.writeln(`<br>Dealership: ${Car.dealership}<br>`);
+        document.writeln(`Instances: ${Car.getInstances()}<br>`);
+        
+        document.writeln("<hr>"); /* Using equivalent of Java's toString() */
+        document.writeln(car1 + "<br>");
+        document.writeln(car2 + "<br>");
+
+    </script>
+</body>
+
+</html>

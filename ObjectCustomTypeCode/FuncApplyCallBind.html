@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        window.terpConstant = 100;
+
+        main();
+
+        function main() {
+            document.writeln("product(1, 2): " + product(1, 2) + "<br>"); // window, 1*2*100
+            document.writeln("applyArguments(3, 4): " + applyArguments(3, 4) + "<br>"); // window, 3*4*100
+            document.writeln("applyArray(2, 3): " + applyArray(2, 3) + "<br>"); // window, 2*3*100
+            document.writeln("applyAndObject(3, 5): " + applyAndObject(3, 5) + "<br>"); // obj, 3*5*1000
+            document.writeln("callExample(6, 5): " + callExample(6, 5) + "<br>"); // obj, 6*5*1000
+            document.writeln("callExample2(6, 5): " + callExample2(6, 5) + "<br>"); // window, 6*5*100
+            document.writeln("bindExample(): "); // obj, 2*5*9
+            bindExample();
+        }
+
+        function product(x, y) {
+            return x * y * this.terpConstant;
+        }
+
+        function applyArguments(x, y) {
+            return product.apply(this, arguments);
+        }
+
+        function applyArray(x, y) {
+            return product.apply(this, [x, y]);
+        }
+
+        function applyAndObject(x, y) {
+            let obj = new Object();
+            obj.terpConstant = 1000;
+            // Note that 1000 is multiplied
+            return product.apply(obj, [x, y]);
+        }
+
+        function callExample(x, y) {
+            let obj = new Object();
+            obj.terpConstant = 1000;
+            return product.call(obj, x, y);
+        }
+
+        function callExample2(x, y) {
+            return product.call(this, x, y);
+        }
+
+        function bindExample() {
+            let obj = new Object();
+            obj.terpConstant = 9;
+
+            var productObj = product.bind(obj); // Returns a function
+            document.writeln(productObj(2, 5)); // Executes the returned function
+        }
+
+    </script>
+</body>
+
+</html>

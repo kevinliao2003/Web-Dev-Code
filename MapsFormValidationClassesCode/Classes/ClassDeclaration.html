@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ES6 Class Example</title>
+  </head>
+
+  <body>
+    <script>
+      class StoreBranch {
+        static #instances = 0; /* static and private */
+        #name; /* private instance variable */
+        #location; /* private instance variable */
+
+        /* Constructor */
+        constructor(name = "NONAME", location = "NOLOCATION") {
+          if (!this.#isValidName(name)) {
+            console.log("Warning, name too short");
+          }
+          this.#name = name;
+          this.#location = location;
+          StoreBranch.#instances++;
+        }
+
+        /* Java's toString() */
+        [Symbol.toPrimitive]() {
+          return `Name: ${this.#name}, Location: ${this.#location}`;
+        }
+
+        /* Non-static method */
+        displayInfo() {
+          document.writeln(
+            `DisplayInfo: <em>${this.#name}</em> located in <em>${this.#location}</em>`
+          );
+          StoreBranch.#printSchool(); /* Calling private static method */
+        }
+
+        /* static method */
+        static getInstances() {
+          return StoreBranch.#instances;
+        }
+
+        /* non-static private method */
+        #isValidName(name) {
+          return name.length >= 2;
+        }
+
+        /* static private method */
+        static #printSchool(name) {
+          document.writeln("<br>School: UMCP<br>");
+        }
+      }
+
+      let storeBranch1 = new StoreBranch("Nendy's", "Greenbelt");
+      storeBranch1.displayInfo();
+      document.writeln("<br>*****<br>");
+      document.writeln(storeBranch1);
+
+      document.writeln("<br>*****<br>");
+      let storeBranch2 = new StoreBranch("A");
+      document.writeln(storeBranch2);
+
+      document.writeln("<br>*****<br>");
+      let storeBranch3 = new StoreBranch();
+      document.writeln(storeBranch3);
+
+      document.writeln("<br>*****<br>");
+      document.writeln(`Number of stores: ${StoreBranch.getInstances()}`);
+    </script>
+  </body>
+</html>

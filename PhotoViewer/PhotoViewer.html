@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Photo Viewer</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="code.js" defer></script> <!-- connects JavaScript file to HTML file -->
+</head>
+
+<body onload="main()">
+    <form>
+        <h1 class="brown_text"><u>Photo Viewer</u></h1>
+        <!-- load image -->
+        <img id="image" src="InitialImage.jpg" class="center" alt="initialImg"><br>
+
+        <fieldset> <!-- text on border -->
+            <legend><b>Status</b></legend>
+
+            <p>
+                Photo Being Displayed: <input type="text" id="photo" disabled> <!-- no input allowed -->
+            </p>
+            
+            <div id="photoViewerSystem" class="red_text">
+                Photo Viewer System
+            </div>
+        </fieldset>
+
+        <fieldset> <!-- text on border -->
+            <legend><b>Local Images (Local Folder)</b></legend>
+            
+            <p>
+                Folder: <input type="text" id="folder" value="umcp/">
+                Common Name: <input type="text" id="name" value="college">
+            </p>
+            <p>
+                Start Photo Number: <input type="text" id="startPhotoNumber" value="2">
+                End Photo Number: <input type="text" id="endPhotoNumber" value="4">
+            </p>
+
+            <!-- button to submit information -->
+            <!-- user clicks on Load Photos -->
+            <input type="button" class="buttonStyle" id="loadPhotos" value="Load Photos">
+        </fieldset>
+
+        <fieldset> <!-- text on border -->
+            <legend><b>Local Images (JSON Folder)</b></legend>
+                <!-- do NOT have the same id and function name -->
+                <p>
+                    URL: <input type="text" id="json" value="http://www.cs.umd.edu/~nelson/classes/resources/cmsc335/images/imagesSet1.json">
+                    <input type="button" class="buttonStyle" id="getJson" value="Load JSON">
+                </p>
+        </fieldset>
+
+        <fieldset> <!-- text on border -->
+            <legend><b>Iterating</b></legend>
+        
+            <p>
+                <input type="button" class="buttonStyle" id="getPreviousPhoto" value="Previous Photo">
+                <input type="button" class="buttonStyle" id="getNextPhoto" value="Next Photo">
+                <input type="button" class="buttonStyle" id="getFirstPhoto" value="First Photo">
+                <input type="button" class="buttonStyle" id="getLastPhoto" value="Last Photo">
+            </p>
+        </fieldset>
+
+        <fieldset> <!-- text on border -->
+            <legend><b>Slideshows</b></legend>
+            
+            <p>
+                <input type="button" class="buttonStyle" id="getSlideshow" value="Slideshow">
+                <input type="button" class="buttonStyle" id="getRandomSlideShow" value="RandomSlideShow">
+                <input type="button" class="buttonStyle" id="getStopSlideShow" value="StopSlideShow">
+            </p>
+        </fieldset>
+        
+        <!-- reset button -->
+        <hr> <!-- straight line across -->
+        <input type="reset" value="Reset Form Values">
+    </form> 
+
+</body>
+
+</html>

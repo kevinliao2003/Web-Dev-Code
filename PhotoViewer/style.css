@@ -1,0 +1,32 @@
+html {
+    border: brown groove ; /* darker color on the outside, lighter color in the inside */
+    border-width: 0.75em;
+}
+
+.red_text {
+    color: red;
+}
+
+.brown_text {
+    color: brown;
+}
+
+fieldset {
+    border: 1px solid #000;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.buttonStyle { /* shadow for buttons */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#image { /* add border around image */
+    border: black double;
+    border-width: 0.5em;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 Class Example</title>
+  </head>
+
+  <body>
+    <script>
+      class MyArray extends Array {
+        isEmpty() {
+          return this.length === 0;
+        }
+      }
+
+      class StoreBranch {
+        #name;
+        #established;
+        #location;
+        #sales;
+        constructor(name, established, location, sales) {
+          this.#name = name;
+          this.#established = established;
+          this.#location = location;
+          this.#sales = sales;
+        }
+
+        [Symbol.toPrimitive]() {
+          return `${this.#name}-${this.#location}`;
+        }
+      }
+
+      let firstStore = new StoreBranch(
+        "Wendy's",
+        new Date("1995"),
+        "Greenbelt",
+        1000
+      );
+      let stores = new MyArray(
+        firstStore,
+        new StoreBranch("Wendy's", new Date("2005"), "College Park", 3000),
+        new StoreBranch("Wendy's", new Date("1985"), "Austin", 600)
+      );
+
+      document.writeln("All the stores<br>");
+      stores.forEach((store) => document.writeln(store + "<br>"));
+
+      let salesLowerValue = 1000;
+      let storesWithGoodSales = stores.filter(
+        (sb) => sb.sales >= salesLowerValue
+      );
+      document.writeln(
+        `Stores with sales of least ${salesLowerValue}: ${storesWithGoodSales}<br>`
+      );
+      document.writeln(`Array is empty? ${storesWithGoodSales.isEmpty()}<br>`);
+    </script>
+  </body>
+</html>

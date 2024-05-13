@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Example</title>
+  <meta charset="utf-8">
+  <style>
+    #displayArea {
+      margin-top: 20px;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <input type="button" id="testSalaryValue" value="testSalaryValue">
+    <input type="button" id="grantSalary" value="grantSalary">
+    <input type="button" id="checkSalary" value="checkSalary">
+  </form>
+
+  <div id="displayArea"></div>
+
+  <script>
+    function displayMessage(message) {
+      document.getElementById("displayArea").innerHTML = message;
+    }
+
+    function SalaryValue() {
+      /* Renaming 'this' to another variable name to avoid using 'this'; use of closure */
+      let that = this;
+      that.salary = 0;
+
+      that.setSalary = function () {
+        that.salary = 8888;
+        alert(`in setSalary() method: ${that.salary}`);
+      };
+
+      that.getSalary = function () {
+        return that.salary;
+      };
+    }
+
+    /* Testing the SalaryValue() by definining a button (testSalaryValue) */ 
+    /* that changes the salary. It seems to work. */
+    document
+      .getElementById("testSalaryValue")
+      .addEventListener("click", function () {
+        const salaryValue = new SalaryValue();
+      
+        alert(`Initial Salary Value: ${salaryValue.getSalary()}`);
+        salaryValue.setSalary();
+        alert(`After setSalary: ${salaryValue.getSalary()}`);
+        displayMessage(output);
+      });
+
+
+    /* Using SalaryValue, but this time the object it is defined outside of the method
+       that makes use of it.  The "grantSalary" button when clicked is supposed 
+       to change the salary, but when you clicked on the "checkSalary" you don't 
+       see the change.
+    */
+    const salaryValue = new SalaryValue();
+    document.getElementById("grantSalary").addEventListener("click", salaryValue.setSalary);
+    document.getElementById("checkSalary").addEventListener("click", function () {
+      alert(salaryValue.getSalary());
+    });
+
+  </script>
+</body>
+
+</html>

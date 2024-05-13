@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS IIFE Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        /* myStar variable will be attached to the windows global object */
+        var myStar = "Albireo";
+        document.writeln(`myStar Value: ${window.myStar}<br>`);
+
+        /* communityStar variable will NOT be attached to windows global object */
+        let communityStar = "Algol";
+        document.writeln(`communityStar Value: ${window.communityStar}<br>`);
+
+        (function() {
+            var hiddenStar = "HiddenStar";
+            document.writeln("within the IIFE");
+        })();
+        document.writeln("Trying to print value of hiddenStar (see Console)<br>");
+        console.log(hiddenStar);
+    
+    </script>
+</body>
+
+</html>

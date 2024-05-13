@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        main();
+
+        function Singer(name, mainLocation) { // Convention to use capital S
+            this.name = name;
+            this.mainLocation = mainLocation;
+
+            this.info = function() {
+                document.writeln("Name: " + this.name);
+                document.writeln(", Main Location: " + this.mainLocation + "<br />");
+            };
+        }
+
+        function main() {
+            let singer1 = new Singer("BTS", "South Korea");
+            singer1.info();
+            document.writeln("Name: " + singer1.name + "<br>");
+
+            let singer2 = new Singer("Lizzo", "US");
+            singer2.info();
+
+            // Calling Singer() (not using new) 
+            // window.name, window.mainLocation, and window.info will be initialized
+            document.writeln("<br>Not using new<br>");
+            Singer("Eric", "US");
+            info(); // window.info();
+            document.writeln("window.name: " + window.name + "<br>");
+            document.writeln("window.mainLocation: " + window.mainLocation + "<br>");
+            document.writeln("name: " + name + "<br>");
+            document.writeln("mainLocation: " + mainLocation + "<br>");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Set Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        /* Notice the use of const instead of let */
+        const mySet = new Set();
+        const student1 = {
+            name: "Mike",
+            id: 10
+        };
+        const student2 = {
+            name: "Rose",
+            id: 20
+        };
+        document.writeln("<strong>Example #1</strong> Adding entries to set<br><br>");
+        mySet.add(150);
+        mySet.add(student1).add(student2); /* Add is chainable */
+        document.writeln("Set size: " + mySet.size + "<br>");
+        document.writeln("Set Entries<br>");
+        for (let entry of mySet) {
+            document.writeln(entry + "<br>");
+        }
+        document.writeln("150 part of the set? " + mySet.has(150) + "<br><hr>");
+
+
+        document.writeln("<br><strong>Example #2</strong> After deleting an entry<br><br>");
+        mySet.delete(student1);
+        for (let entry of mySet) {
+            document.writeln(entry + "<br>");
+        }
+        document.writeln("<hr>");
+
+
+        document.writeln("<br><strong>Example #3</strong> After clearing the set<br>");
+        mySet.clear();
+        for (let entry of mySet) {
+            document.writeln(entry + "<br>");
+        }
+        document.writeln("<hr>");
+
+
+        document.writeln("<br><strong>Example #4</strong> Set based on array (removind duplicates)<br>");
+        let arr = ["C", "JavaScript", "Pascal", "Pascal", "C", "Nava"];
+        document.writeln(`Array: ${arr}<br>`);
+        let setFromArray = new Set(arr);
+        document.writeln("Iterating over set:<br>");
+        for (let value of setFromArray) {
+            document.writeln(`${value}<br>`);
+        }
+    </script>
+</body>
+
+</html>

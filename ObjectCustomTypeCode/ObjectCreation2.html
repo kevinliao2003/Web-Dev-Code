@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Object Creation Example</title>
+</head>
+
+<body>
+    <script>
+         /***** object1 *****/
+        document.writeln("<h2>Example #1 Properties of object1</h2>");
+        let object1 = {};
+        let propertiesArray = getAllProperties(object1);
+        document.writeln("<strong>Displaying all properties collected</strong><br>");
+        propertiesArray.forEach(prop => document.writeln(prop + "<br>"));
+        if (Object.prototype.isPrototypeOf(object1)) {
+            document.writeln("<br><strong>Object.prototype is prototype of object1</strong>");
+        }
+        document.writeln("<hr>");
+
+        
+
+
+        document.writeln("<h2>Example #2 desert properties</h2>");
+        let dessert = {
+            minimumCalories: 100,
+            displayDessert: function() {
+                document.writeln(this.name + ", " + this.calories + "<br>");
+            },
+
+            showDessert() {
+                document.writeln(this.name + ", " + this.calories + "<br>");
+            }
+        };
+        propertiesArray = getAllProperties(dessert);
+        document.writeln("<strong>Displaying all properties collected</strong><br>");
+        propertiesArray.forEach(prop => document.writeln(prop + "<br>"));
+        if (Object.prototype.isPrototypeOf(dessert)) {
+            document.writeln("<strong>Object.prototype is prototype of dessert</strong><br>");
+        } else {
+            document.writeln("<strong>Object.prototype is NOT prototype of dessert</strong><br>");
+        }
+        document.writeln("<hr>");
+
+
+
+
+        document.writeln("<h2>Example #3 cheesecake properties</h2>");
+        // Creating new type (cheesecake)
+        let cheesecake = Object.create(dessert);
+        cheesecake.name = "cheesecake"; // add property
+        cheesecake.calories = 750; // add property
+        propertiesArray = getAllProperties(cheesecake);
+        document.writeln("<strong>Displaying all properties collected</strong><br>");
+        propertiesArray.forEach(prop => document.writeln(prop + "<br>"));
+        if (dessert.isPrototypeOf(cheesecake)) {
+            document.writeln("<strong>dessert is prototype of cheesecake</strong><br>");
+        }
+        if (Object.prototype.isPrototypeOf(cheesecake)) {
+            document.writeln("<strong>Object.prototype is prototype of cheesecake</strong><br>");
+        }
+        document.writeln("<hr><br>");
+
+
+
+
+
+        /* Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects */
+        function getAllProperties(src) {
+            let currObj,
+                answer = [];
+
+            /* Traversing the prototype chain */
+            currObj = src;
+            while (currObj !== null) {
+                let currObjProperties = Object.getOwnPropertyNames(currObj);
+                document.writeln("getAllPropertiesMethod(): Adding following properties: " + currObjProperties + "<br>");
+                answer = answer.concat(currObjProperties);
+                currObj = Object.getPrototypeOf(currObj);
+            }
+            return answer;
+        }
+
+    </script>
+</body>
+
+</html>

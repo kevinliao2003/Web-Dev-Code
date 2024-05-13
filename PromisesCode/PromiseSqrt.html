@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+  <body>
+    <script>
+      document.writeln(`<h2>Check console for results</h2>`);
+
+      function getSqrt(x) {
+        return Math.sqrt(x);
+      }
+      console.log(`getSqrt(): ${getSqrt(4)}`);
+
+      function getSqrtDelay(x) {
+        let answer;
+        setTimeout(() => (answer = Math.sqrt(x)), 2000);
+        return answer;
+      }
+      /* Will print undefined */
+      console.log(`getSqrtDelay() (Problem!!!): ${getSqrtDelay(4)}`);
+
+      function getSqrtPromiseWrong(x) {
+        let answer;
+        let promise = new Promise((resolve) => {
+          console.log(x);
+          setTimeout(() => {answer = Math.sqrt(x); resolve(answer)}, 2000);
+        });
+        promise.then(value => {console.log(`Value is: ${value}`); return value});
+        console.log(`after then ${answer}`);
+        return answer;
+      }
+      console.log(`getSqrtPromiseWrong(): ${getSqrtPromiseWrong(4)}`);
+
+
+      function getSqrtPromise(x, resolveSqrt) {
+        let answer;
+        let promise = new Promise((resolve) => {
+          setTimeout(() => {answer = Math.sqrt(x); resolve(answer)}, 2000);
+        });
+        promise.then(resolveSqrt);
+        console.log(`getSqrtPromise() ended`);
+      }
+      getSqrtPromise(4, value => console.log(`getSqrtPromise(): ${value}`));
+      console.log(`After getSqrtPromise`);
+      
+      function getSqrtPromise2(x) {
+        let answer;
+        let promise = new Promise((resolve) => {
+          setTimeout(() => {answer = Math.sqrt(x); resolve(answer)}, 2000);
+        });
+
+        return promise;
+      }
+
+      getSqrtPromise2(4).then(value => console.log(`getSqrtPromise2(): ${value}`));
+      console.log(`After getSqrtPromise2`);
+
+    </script>
+  </body>
+</html>

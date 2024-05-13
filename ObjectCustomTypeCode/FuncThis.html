@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        function printInfo() {
+            document.writeln(this.singer + "<br />");
+        }
+
+        window.singer = "Lionel";
+
+        main();
+
+        function main() {
+            printInfo(); /* Relying on global object (window) */
+
+            let obj = new Object();
+            obj.singer = "Elvis";
+            obj.singerInfo = printInfo;
+            obj.singerInfo();
+        }
+
+    </script>
+</body>
+
+</html>

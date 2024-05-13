@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+<body>
+    <script>
+     let initialValue = 0;
+     let data = [2, 2, 3];
+
+     document.writeln("<br>========= Case 1 (Sum) =========<br>");
+     const sum = data.reduce((result, elem) => {
+        return result + elem;
+     }, initialValue);
+     document.writeln(`Sum: ${sum}`);
+
+     initialValue = 1;
+     data = [2, 2, 3];
+     document.writeln("<br>========= Case 2 (Product) =========<br>");
+     const product = data.reduce((result, elem) => {
+        return result * elem;
+     }, initialValue);
+     document.writeln(`Product: ${product}`);
+
+     data = [2, 2, 3];
+     document.writeln("<br>========= Case 3 (Product (no initialValue)) =========<br>");
+     const product2 = data.reduce((result, elem) => {
+        return result * elem;
+     });
+     document.writeln(`Product: ${product2}`);
+     
+     data=[77, 88, 99];
+     initiaValue = 0;
+     document.writeln("<br>========= Case 4 =========<br>");
+     data.reduce((result, elem, index, array) => {
+        document.writeln(`result: ${result}<br>`);
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+     }, initialValue);
+
+     document.writeln("<br>========= Case 5 =========<br>");
+     data.reduce((result, elem, index, array) => {
+        document.writeln(`result: ${result}<br>`);
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+     });
+
+     document.writeln("<br>========= Case 6 =========<br>");
+     data.reduce((result, elem, index, array) => {
+        document.writeln(`result: ${result}<br>`);
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+        return 20;
+     }, initialValue);
+
+ 
+    </script>
+</body>
+</html>

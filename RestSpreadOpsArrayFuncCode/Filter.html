@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Filter Method</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        document.writeln("***** <strong>Example #1</strong> Using map function to double values *****<br>");
+        let numbers = [2, 7, 30, 44, 5];
+        let evenValues = numbers.filter(num => num % 2 === 0);
+        document.writeln(`Original array: ${numbers}<br>`);
+        document.writeln(`New array: ${evenValues} <br><br>`);
+        
+        document.writeln("*****<strong>Example #2</strong> Using map function to triple values *****<br>");
+        let names = ["Rose", "Peter", "Bob", "Al", "Kathy"]
+        let greaterThan = names.filter(name => name.localeCompare("Kathy") > 0);
+        document.writeln(`Original array: ${names} <br>`);
+        document.writeln(`New array: ${greaterThan}`);
+    </script>
+</body></html>

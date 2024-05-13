@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="formValidation.css">
+    <script src="formValidation.js"></script>
+</head>
+
+<body>
+    <form id="myForm" action="paymentValidation.php" method="get">
+        <fieldset>
+            <legend>
+                <em>Customer Info</em>
+            </legend>
+            <strong>Name:
+            </strong><input id="name" type="text" name="name" value="Mary">
+            
+            <strong>Account Number:
+            </strong><input id="account" type="text" name="account"><br><br>
+            
+            <strong>Payment:
+            </strong><input id="payment" type="text" name="payment"><br><br>
+            
+            <strong>Receive News:
+            </strong><input type="checkbox" name="news" id="news" checked value="YesReceiveNews"><br><br>
+            
+            <strong>Payment Plan:</strong>
+            <input type="radio" name="plan" id="oneYearPlan" value="OneYearPaymentPlan" checked>
+            <label for="oneYearPlan">One-Year</label>
+            <input type="radio" name="plan" id="twoYearPlan" value="TwoYearPaymentPlan">
+            <label for="twoYearPlan">Two-Year</label><br><br>
+            
+            <strong>Location:</strong>
+            <select name="location">
+                <option value="In-State">In-State</option>
+                <option value="Out-of-State" selected="selected">Out-of-State</option>
+            </select>
+            
+            <br><br>
+            <input type="reset">
+            <input type="submit" value="Submit Data">
+        </fieldset>
+    </form>
+</body>
+
+</html>

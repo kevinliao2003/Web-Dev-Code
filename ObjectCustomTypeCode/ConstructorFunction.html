@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+
+  <body>
+    <script>
+      main();
+
+      /* Constructor function */
+      function Computer(model, memory) {
+        this.model = model;
+        this.memory = memory;
+        this.getMemory = function () {
+          return this.memory; /* We need this.memory */
+        };
+        this.setMemory = function (memoryValue) {
+          this.memory = memoryValue;
+        };
+      }
+
+      function main() {
+        Computer("Mac", 100); /* Not using new; window is the context object */
+        document.writeln("window.model: " + window.model + "<br>");
+        document.writeln("window.memory: " + window.memory + "<br>");
+
+        let comp1 = new Computer("PC", 30);
+        document.writeln("Comp1 model: " + comp1.model + "<br>");
+        document.writeln("Comp1 memory: " + comp1.getMemory() + "<br>");
+        comp1.setMemory(100);
+        document.writeln("Comp1 memory: " + comp1.memory + "<br>");
+      }
+    </script>
+  </body>
+</html>

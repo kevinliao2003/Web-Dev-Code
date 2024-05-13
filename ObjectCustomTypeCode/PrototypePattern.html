@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        /* Constructor function */
+        function Student() {}
+
+        Student.prototype.name = "Laura";
+        Student.prototype.courses = ['psyc101', '424', '430'];
+        Student.prototype.info = function() {
+            document.writeln("<strong>Name:</strong> " + this.name);
+            document.writeln(", <strong>Courses:</strong> " + this.courses + "<br />");
+        };
+
+        main();
+
+        function main() {
+            let student1 = new Student();
+            document.writeln("***** student1 after creation:<br>");
+            student1.info();
+            document.writeln("student1 after changing courses:<br>");
+            student1.courses[2] = '414';
+            student1.courses.push('451');
+            student1.info();
+            
+            document.writeln("<br><br>***** student2 after creation:<br>");
+            let student2 = new Student();
+            student2.info(); 
+           
+            document.writeln("<br><br>***** changing student2's name and one course");
+            student2.name = "Jenny";
+            student2.courses[2] = '777';
+
+            document.writeln("<br>***** after changes:<br>");
+            document.writeln("***** student1 <br>");
+            student1.info();
+            
+            document.writeln("***** student2 <br>");
+            student2.info();
+        }
+
+    </script>
+</body>
+
+</html>

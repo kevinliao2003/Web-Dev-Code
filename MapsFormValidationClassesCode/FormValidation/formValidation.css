@@ -1,0 +1,12 @@
+
+body {
+ 	font-family: Arial, Helvetica, sans-serif;
+} 
+
+fieldset {
+    border-radius: .75em;
+}
+
+input {
+    border-radius: .75em;
+}

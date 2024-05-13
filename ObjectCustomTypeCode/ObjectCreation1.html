@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Object Creation Example</title>
+</head>
+
+<body>
+    <script>
+         /***** object1 *****/
+        let object1 = new Object();
+        let object2 = new Object();
+        let object3 = {};
+        let message;
+        
+        if (object1.__proto__ == object2.__proto__) {
+           message = "<strong>same (1 and 2)</strong><br>";
+        } else {
+           message = "<strong>different</strong><br>";
+        }
+        document.writeln(message);
+
+        if (object1.__proto__ == object3.__proto__) {
+           message = "<strong>same (1 and 3)</strong><br>";
+        } else {
+           message = "<strong>different</strong><br>";
+        }
+        document.writeln(message);
+      
+        document.writeln("<strong>Check console for additional information</strong><br>");
+        console.log(`Object.prototype.__proto__: ${Object.prototype.__proto__}`);
+        console.log(`\n\n\n##### Object.prototype: #####`);
+        console.table(Object.prototype);
+    </script>
+</body>
+
+</html>

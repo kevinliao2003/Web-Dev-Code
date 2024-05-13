@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Callback example</title>
+</head>
+
+<body>
+  <script>
+    function loadScript(src) {
+      let script = document.createElement("script");
+      script.src = src;
+      document.head.append(script);
+    }
+
+    loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js");
+    document.writeln(`Library loaded (?????), Check console</h1>`);
+    const arr1 = ['a', 'b', 'c'];
+    const arr2 = ['e', 'a', 'c'];
+    document.writeln(_.intersection(arr1, arr2)); // ReferenceError: _ is not defined
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        /* Constructor function */
+        function Student(name, credits, courses) {
+            console.log("Student constructor fn: " + this.__proto__.constructor.name);
+
+            this.name = name;
+            this.credits = credits;
+            this.courses = courses;
+        }
+
+        Student.prototype = {
+            constructor: Student,
+            college: "UMCP",
+
+            info: function() {
+                document.writeln("Name: " + this.name);
+                document.writeln(", Credits: " + this.credits);
+                document.writeln(", Courses: " + this.courses + " ");
+                document.writeln(", College: " + this.college + "<br />");
+            }
+        };
+
+        function GradStudent(name, credits, courses, advisor) {
+            console.log("GradStudent constructor fn: " + this.__proto__.constructor.name);
+
+            /* Calls super class constructor */
+            Student.call(this, name, credits, courses);
+
+            /* Try without "call" */
+            // Student(name, credits, courses);
+
+            this.advisor = advisor;
+        }
+
+        /* What are the differences between the next new Student() and Object.create(Student.prototype)? */
+        GradStudent.prototype = new Student();
+        //GradStudent.prototype = Object.create(Student.prototype);
+        GradStudent.prototype.constructor = GradStudent;
+        GradStudent.prototype.getAdvisor = function() {
+            return this.advisor;
+        }
+
+        main();
+
+        function main() {
+            let graduateStudent1 = new GradStudent("Kelly", 15, [414, 420], "Dr. Smith");
+            
+            document.writeln("***** graduateStudent1<br>");
+            graduateStudent1.info();
+
+
+            document.writeln("Advisor: " + graduateStudent1.getAdvisor() + "<br>");
+            document.writeln("Name: " + graduateStudent1.name + "<br>");
+            document.writeln("College: " + graduateStudent1.college + "<br>");
+
+            document.writeln("<br>***** graduateStudent2<br>");
+            let graduateStudent2 = new GradStudent("Wiley", 15, [631, 632], "Dr. Will");
+            graduateStudent2.info();
+        }
+
+    </script>
+</body>
+
+</html>

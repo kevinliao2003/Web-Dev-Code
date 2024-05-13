@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+  <body>
+    <script>
+      
+      /* Defining two students with different pieces of information */
+
+      const mary = {
+        name: "Mary",
+        address: {
+          city: "College Park",
+          state: "Maryland",
+          budget: {
+            local: 340,
+            federal: 500,
+          },
+        },
+      };
+
+      const peter = {
+        name: "Peter"
+      };
+
+      function printInfoWrong(student) {
+        let answer = `Printing info for ${student.name} `;
+
+        answer += ` ${student.address.city} ${student.address.state}<br>`;
+
+        document.writeln(`printInfoWrong - ${answer}<br>`);
+      }
+
+      function printInfoCorrect(student) {
+        let answer = `Printing info for ${student?.name} `;
+
+        answer += ` Budget: `;
+        answer += `Local: ${student.address?.budget?.local}, Federal: ${student.address?.budget?.federal}<br>`;
+
+        document.writeln(`printInfoCorrect- ${answer}<br>`);
+      }
+
+      printInfoWrong(mary);
+      // printInfoWrong(peter); /* Uncomment and check console to see problem */
+
+      printInfoCorrect(mary);
+      printInfoCorrect(peter);
+     
+    </script>
+  </body>
+</html>

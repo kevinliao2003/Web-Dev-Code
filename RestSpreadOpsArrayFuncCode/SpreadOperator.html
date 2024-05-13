@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Spread Operator Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        process(1, 10, 2, "DataTestOne");
+        process(...[1, 10, 2, "DataTestTwo", "DataTestThree"]);
+        process(1, ...[10, 2], "DataTestFour"); /* will not work without spread operator */
+
+        function process(start, end, delta, message) {
+            document.writeln(message + "<br>");
+            for (let i = start; i <= end; i += delta) {
+                document.writeln(i + " ");
+            }
+            document.writeln("<br>");
+
+            document.writeln("arguments.length: " + arguments.length + "<br>");
+            document.writeln("arguments[arguments.length - 1]: " + arguments[arguments.length - 1])
+            document.writeln("<br>### Arguments: ###<br>");
+            for (let val of arguments) {
+                document.writeln(`Argument: ${val}|`);
+            }
+            document.writeln("<br>***** END *****<br><br>");
+
+        }
+
+        document.writeln("***** Combining arrays *****<br>");
+        let part1 = ["C", "Java"];
+        let part2 = ["Python"];
+        let combined = [...part1, ...part2];
+        document.writeln(combined.join() + "<br><br>");
+
+
+        document.writeln("***** Computing maximum of arrays *****<br>");
+        let numArray1 = [1, -21, 3, 4];
+        let numArray2 = [9, 3, -8, 10, 7];
+        document.writeln(`Maximum is: ${Math.max(...numArray1, ...numArray2)}<br><br>`);
+
+        
+        document.writeln("***** Breaking Strings *****<br>");
+        let string = "CMSCXYZ";
+        let charArray = [...string];
+        document.writeln(`Original: ${string}<br>`);
+        document.writeln(`As array: ${charArray}<br>`);
+        document.writeln(`Type of character: ${typeof charArray[0]}<br>`);
+    </script>
+</body>
+
+</html>

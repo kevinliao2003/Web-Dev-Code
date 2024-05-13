@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>JS Map Example</title>
+</head>
+
+<body>
+	<script>
+		"use strict";
+
+		function printMap(map) {
+			document.writeln("Map info<br>");
+			document.writeln("<strong>Map size: " + map.size + "</strong><br>");
+            document.writeln("<strong>Map Contents</strong><br>");
+			map.forEach(entry => document.writeln(entry + "<br>")); /* can use forEach with map */
+			document.writeln("End Map info<br>");
+		}
+
+		document.writeln(`<strong>***** Example #1</strong><br>`);
+		const map = new Map();
+		map.set("Mike", 88);
+		map.set("Rose", 90);
+		map.set("Kelly", 100);
+		printMap(map);
+		document.writeln(`<br>map.get("Rose"): ` + map.get("Rose") + "<br>");
+		document.writeln(`map.get("NotInMap"): ` + map.get("NotInMap") + "<br>");
+		document.writeln("map.has(\"Mike\"): " + map.has("Mike") + "<br>");
+        
+
+        document.writeln(`<br><strong>***** Example #2</strong>`);
+		let firstDeletion = map.delete("Rose");
+		document.writeln("<br>First deletion (Rose): " + firstDeletion + "<br>");
+		let secondDeletion = map.delete("NotInMap");
+		document.writeln("Second deletion (NotInMap): " + secondDeletion + "<br>");
+		printMap(map);
+    
+		document.writeln(`<br><strong>***** Example #3</strong>`);
+		document.writeln("<br>Using map.keys()<br>");
+		for (let key of map.keys()) {
+			document.writeln(key + "<br>");
+		}
+        
+		document.writeln("<br>Using map.values()<br>");
+		for (let value of map.values()) {
+			document.writeln(value + "<br>");
+		}
+        
+        
+		document.writeln("<br>Using map.entries()<br>");
+		for (let entry of map.entries()) {
+			document.writeln(entry[0] + ", " + entry[1] + "<br>");
+		}
+          
+		document.writeln("<br>Using map.entries() (with [key, value])<br>");
+		for (let [key, value] of map.entries()) {
+			document.writeln(key + ", " + value + "<br>");
+		}
+
+		document.writeln("<br>Another Iteration<br>");
+		for (let [key, value] of map) {
+			document.writeln(key + ", " + value + "<br>");
+		}
+
+		document.writeln("<br>Yet another Iteration<br>");
+		map.forEach((key, value) => document.writeln(`${key}, ${value}<br>`));
+	</script>
+</body>
+
+</html>

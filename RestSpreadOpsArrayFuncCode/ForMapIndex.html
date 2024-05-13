@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+    <script>
+     
+     let data=[77, 88, 99];
+     let initialValue = 0;
+
+     document.writeln("<br>========= forEach =========<br>");
+     let result = data.forEach((elem, index, array) => {
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+     });
+     document.writeln(`Result ${result}<br>`);
+
+     document.writeln("<br>========= map =========<br>");
+     result = data.map((elem, index, array) => {
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+        // return elem; // uncomment to add elem to result
+     });
+     document.writeln(`Result ${result}<br>`);
+
+     document.writeln("<br>========= filter =========<br>");
+     result = data.filter((elem, index, array) => {
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+        // return true; // uncomment to add elem to result
+     });
+     document.writeln(`Result ${result}<br>`);
+
+     document.writeln("<br>========= every =========<br>");
+     result = data.every((elem, index, array) => {
+        document.writeln(`elem: ${elem}<br>`);
+        document.writeln(`index: ${index}<br>`);
+        document.writeln(`array: ${array}<br>`);
+        document.writeln("*** next ***<br>");
+        // return true; // uncomment to return true
+     });
+     document.writeln(`Result ${result}<br>`);
+    </script>
+</head>
+</html>

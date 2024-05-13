@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        /* constructor function */
+        function Student(name, credits, courses) {
+            this.name = name;
+            this.credits = credits;
+            this.courses = [...courses];
+        }
+
+        /* Prototype for all objects created by the Student constructor function */
+        Student.prototype = {
+            constructor: Student,
+            /* Student is the constructor function that creates the object's prototype */
+            college: "UMCP",
+
+            info: function () {
+                document.writeln(`Name: ${this.name}, Credits: ${this.credits}
+                                  Courses: ${this.courses}, College: ${this.college} <br>`);
+            }
+        };
+
+        main();
+
+        function main() {
+            let student1 = new Student("Kelly", 15, [414, 420]);
+            document.writeln("**** student1<br>");
+            student1.info();
+
+            document.writeln("**** student1 after adding a course<br>")
+            student1.courses.push(830);
+            student1.info();
+
+            document.writeln("<br>**** student2<br>");
+            let student2 = new Student("Peter", 12, [314, 320]);
+            student2.info();
+
+            // Even if instances for an object has been created, adding a
+            // property/method to the prototype will make it immediately
+            // available.
+            Student.prototype.collegeLocation = "College Park";
+
+            document.writeln("<br>Accessing property added to prototype from both students<br>");
+            document.writeln(`student1.collegeLocation: ${student1.collegeLocation}<br>`);
+            document.writeln(`student2.collegeLocation: ${student2.collegeLocation}<br>`);
+        }
+    </script>
+</body>
+
+</html>

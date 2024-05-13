@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+  <body>
+    <script>
+      const employees = [
+        {
+          name: "John",
+          salary: 10000,
+        },
+        {
+          name: "Kelly",
+          salary: 50000,
+        },
+        {
+          name: "Sarah",
+          salary: 2000,
+        },
+      ];
+
+      const totalSalary = employees.reduce((result, elem) => {
+        return result + elem.salary;
+      }, 0);
+      document.writeln(`totalSalary: ${totalSalary}<br>`);
+
+      const avgSalary = employees.reduce((result, elem) => {
+        return result + elem.salary / 3;
+      }, 0);
+      document.writeln(`avgSalary: ${avgSalary}<br>`);
+
+      const maxSalary = employees.reduce((result, elem) => {
+        return result > elem.salary ? result : elem.salary;
+      }, 0);
+      document.writeln(`maxSalary: ${maxSalary}<br>`);
+    </script>
+  </body>
+</html>

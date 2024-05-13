@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+	<script>
+        "use strict";
+        main();
+        
+        function main() {
+            let student = new Object();
+            student.name = "Rose";
+            Object.preventExtensions(student);
+            
+            document.writeln("***** preventExtensions *****")
+            // student.gpa = 3.2; // NOT Allowed
+            student.name = "Mark";
+            document.writeln("<br />gpa: " + student.gpa);
+			document.writeln("<br />name: " + student.name);
+            
+            /* We can delete properties of object we prevented extensions */
+            delete student.name;
+            document.writeln("<br />name (after deleting): " + student.name);
+            
+            document.writeln("<br><br>***** sealing object *****")
+            /* Sealing the object */
+            let game = new Object();
+            game.name = "SuperTetris";
+            Object.seal(game);
+            
+            // game.year = 2000; // NOT Allowed 
+            // delete game.name; // NOT Allowed
+            document.writeln("<br />Game name: " + game.name);
+	        document.writeln("<br />Extensible: " + Object.isExtensible(game));
+            document.writeln("<br />Sealed: " + Object.isSealed(game));
+            
+            /* Can still change the value */
+            game.name = "AnotherTetris";
+            document.writeln("<br />After changing name: " + game.name);
+        }
+	</script>
+</body>
+</html>

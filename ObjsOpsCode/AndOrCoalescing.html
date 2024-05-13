@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+  <body>
+    <script>
+      function printValueAnd(val1, val2) {
+        document.writeln(`${val1} && ${val2}: ${val1 && val2}<br>`);
+      }
+
+      function printValueOr(val1, val2) {
+        document.writeln(`${val1} || ${val2}: ${val1 || val2}<br>`);
+      }
+
+      function printName(name) {
+        document.writeln(`printName argument ${name}, `);
+        // name = name || "No name";
+        name ||= "No name"; // equivalent to previous one
+        document.writeln(`printName result: ${name}<br>`);
+      }
+
+      function printQuantityRequested(quantity) {
+        document.writeln(`printQualityRequested argument ${quantity}, `);
+        quantity ||= 18;
+        document.writeln(`printQuantity result: ${quantity}<br>`);
+      }
+
+      function printQuantityRequestedCorrect(quantity) {
+        document.writeln(`printQualityRequestedCorrect argument ${quantity}, `);
+        // quantity = quantity ?? 18;
+        quantity ??= 18;
+        document.writeln(`printQuantityCorrect result: ${quantity}<br>`);
+      }
+
+      printValueAnd(10, 20);
+      printValueAnd(20, 10);
+      printValueAnd(true, 10);
+      printValueAnd(false, 10);
+      printValueAnd(undefined, 10);
+      printValueAnd(null, 10);
+      document.writeln("==========<br>");
+
+      printValueOr(10, 20);
+      printValueOr(20, 10);
+      printValueOr(true, 10);
+      printValueOr(false, 10);
+      printValueOr(undefined, 10);
+      printValueOr(null, 10);
+      document.writeln("==========<br>");
+
+      printName("Mary");
+      printName(null);
+      printName(undefined);
+      document.writeln("==========<br>");
+
+      printQuantityRequested(20);
+      printQuantityRequested(null);
+      printQuantityRequested();
+      printQuantityRequested(undefined);
+      printQuantityRequested(0); // problem!!!
+      document.writeln("==========<br>");
+
+      printQuantityRequestedCorrect(20);
+      printQuantityRequestedCorrect(null);
+      printQuantityRequestedCorrect();
+      printQuantityRequestedCorrect(undefined);
+      printQuantityRequestedCorrect(0);
+    </script>
+  </body>
+</html>

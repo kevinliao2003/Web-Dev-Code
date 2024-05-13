@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>JS Example</title>
+    </head>
+
+    <body>
+        <script>
+            main();
+
+            function processData(x, y) {
+                /* Arguments is not array */
+                document.writeln("arguments.length: " + arguments.length);
+                document.writeln(", arguments[0]: " + arguments[0]);
+                document.writeln(", arguments[1]: " + arguments[1] + "<hr>");
+            }
+
+            function processDataRecursive(x, y) {
+                /* Arguments is not array */
+                document.writeln("arguments.length: " + arguments.length);
+                document.writeln(", arguments[0]: " + arguments[0]);
+                document.writeln(", arguments[1]: " + arguments[1] + "<hr>");
+
+                if (x !== 0) {
+                    arguments.callee(--x, --y); /* recursive call */
+                }
+            }
+            
+
+            function main() {
+                document.writeln("processData call<br>");
+                processData(3, 4);
+              
+                document.writeln("processData call<br>");
+                processData(10);
+                
+                document.writeln("processData call<br>");
+                processData();
+                
+                document.writeln("processDataRecursive call<br>");
+                processDataRecursive(2, 3);
+            }
+        </script>
+    </body>
+
+</html>

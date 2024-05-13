@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS forEach, find, findIndex</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        document.writeln("***** <strong>Example #1</strong> Result of processing with forEach ");
+        document.writeln("(with 2-parameter function) *****<br>");
+        let fruits = ["apple", "pear", "banana", "orange", "plum", "grape"];
+        fruits[7] = "strawberry"; /* Added leaving undefined element in between */
+
+        document.writeln(`Original array: ${fruits.join()}<br>`);
+        fruits.forEach(function(elem, index) {
+            document.writeln(`Index: ${index}, Elem: ${elem}<br>`);
+        });
+
+        document.writeln("<br>**** Using arrow function<br>");
+        fruits.forEach((elem, index) => {
+            document.writeln(`Index: ${index}, Elem: ${elem}<br>`);
+        });
+        
+        document.writeln("<br>**** <strong>Example #2</strong> Result of processing with forEach ");
+        document.writeln("(with with 1-parameter function) *****<br>");
+        fruits.forEach(elem => {
+            document.writeln(`Elem: ${elem}<br>`);
+        });
+
+
+        document.writeln("<br>***** <strong>Example #3</strong> Result of processing with find ");
+        document.writeln(" finding fruit's name with minimum length) *****<br>");
+        fruits = ["apple", "pear", "banana", "orange", "plum", "grape"];
+        document.writeln("Original array: " + fruits.join() + "<br>");
+        let targetLength = 6; /* Try with 8 */
+        let result = fruits.find(elem => {
+            return elem.length >= targetLength;
+        });
+        if (result !== undefined) {
+            document.writeln(`First fruit with length ${targetLength} is ${result}`);
+        } else {
+            document.writeln("Not found");
+        }
+        document.writeln("<br>");
+
+        
+        document.writeln("<br>***** <strong>Example #4</strong> Result of processing with findIndex ");
+        document.writeln("finding fruit's name with minimum length) *****<br>");
+        fruits = ["apple", "pear", "banana", "orange", "plum", "grape"];
+        document.writeln("Original array: " + fruits.join() + "<br>");
+        targetLength = 6; /* Try with 8 */
+        let resultIndex = fruits.findIndex(elem => {
+            return elem.length >= targetLength;
+        });
+        if (resultIndex !== -1) {
+            document.writeln(`First fruit with length ${targetLength} is ${fruits[resultIndex]}`);
+        } else {
+            document.writeln("Not found");
+        }
+        document.writeln("<br>");
+    </script>
+</body></html>

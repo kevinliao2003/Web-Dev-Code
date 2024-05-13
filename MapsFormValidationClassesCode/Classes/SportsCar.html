@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Class Example</title>
+</head>
+
+<body>
+    <script>
+        class Car {
+            static dealership = "Terp Cars"; /* static public */
+            static #instances = 0; /* static private */
+
+            passengers = ["Rose"]; /* public */
+
+            #tag; /* private */
+            #mileage; /* private */
+
+            constructor(tag, mileage) {
+                this.#tag = tag;
+                this.#mileage = mileage;
+                Car.#instances++;
+            }
+
+            get tag() {
+                return this.#tag;
+            }
+
+            set tag(newTag) {
+                this.#tag = newTag;
+            }
+
+            displayInfo() {
+                document.writeln(this.#tag + ", " + this.#mileage);
+            }
+
+            static getInstances() {
+                return Car.#instances;
+            }
+
+            [Symbol.toPrimitive]() {
+                /* Java's toString() */
+                return `Tag: ${this.#tag}, Mileage: ${this.#mileage}, Passengers: ${this.passengers}`;
+            }
+        }
+
+        class SportsCar extends Car {
+            #engine;
+            constructor(tag, mileage, engine) {
+                super(tag, mileage);
+                this.#engine = engine;
+            }
+
+            get engine() {
+                return this.#engine;
+            }
+
+            displayInfo() {
+                super.displayInfo();
+                document.writeln(this.#engine + "<br>");
+            }
+
+            [Symbol.toPrimitive]() {
+                return `${super[Symbol.toPrimitive]()}, Engine: ${this.#engine}`;
+            }
+        }
+
+        let sportsCar = new SportsCar("X2W-BBC", 22000, "turbo");
+        document.writeln("Sports car info: ");
+        sportsCar.displayInfo();
+        document.writeln("Engine: " + sportsCar.engine);
+        document.writeln("<hr>");
+
+        document.writeln(`Using equivalent of "Java's toString()"<br>`);
+        document.writeln(sportsCar);
+
+    </script>
+</body>
+
+</html>

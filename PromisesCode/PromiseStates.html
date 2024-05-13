@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+  </head>
+  <body>
+    <h1>Open console to see results</h1>
+    <script>
+
+      const success = true;
+      const promise = new Promise((resolve, reject) => {
+        const timeout = 6000;
+        const valueToReturnWhenResolved = 888, valueToReturnWhenRejected = 999;
+        /* Simulates asynch task */
+        setTimeout(() => {
+          if (success) {
+            resolve(valueToReturnWhenResolved);  // comment this line when success is true and run 
+          } else {
+            reject(valueToReturnWhenRejected); // comment this line when success is false and run
+          }
+        }, timeout);
+      });
+
+      promise
+        .then((val) => console.log(`When success value is ${val}`))
+        .catch((err) => console.log(`When failure value is ${err}`));
+
+      console.log(`After then()`, promise);
+
+      /* Waiting to check final state of the promise */
+      setTimeout(() => console.log(`After final setTimeout`, promise), 4000);
+    </script>
+  </body>
+</html>

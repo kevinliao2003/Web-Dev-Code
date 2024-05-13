@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ES6 Modules</title>
+  </head>
+  <body>
+    <!-- remove type="module" to see what happens (check console) -->
+    <script type="module"> 
+      import { hello, salute } from "./greeting.js";
+
+      let str1 = hello("Terp");
+      let str2 = salute("Terp");
+
+      document.body.innerHTML = str1 + "<br>" + str2;
+    </script>
+  </body>
+</html>

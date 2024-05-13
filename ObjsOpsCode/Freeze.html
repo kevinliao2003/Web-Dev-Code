@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Freezin object</title>
+</head>
+
+<body>
+	<script>
+        "use strict";
+        main();
+        
+        function main() {
+            let school = new Object();
+            let info;
+            
+            school.name = "UMCP";
+            school.city = "College Park";
+            Object.freeze(school);
+            
+            // school.name = "UMD";    // modifying NOT Allowed (Generates error) 
+            // delete school.city;     // deleting NOT Allowed (Generates error)  
+            // school.mascot = "terp"; // adding NOT Allowed (Generates error) 
+            
+            info = school.name + " " + school.city;
+            document.writeln(info);
+        }
+	</script>
+</body>
+</html>
