@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Form Example</title>
+</head>
+
+<body>
+	<form action="formsSummary.php" method="get">
+		<!-- Textboxes and Password entry -->
+		<p><strong>FirstName: </strong><input type="text" name="firstName" value="Mary" autofocus required><br><br>
+		   <strong>LastName: </strong><input type="text" name="lastName" value="Smith" required><br><br>
+		   <strong>Password: </strong><input type="password" name="password" required><br><br>
+		</p>
+
+		<p>
+			<!-- id and name are different attributes -->
+			<strong>Email Address: <input id="emailaddress" type="email" name="email"  placeholder="example@notreal.notreal"></strong>
+		</p>
+		
+		<p>
+			<strong>Personal Website: <input id="website" type="url" name="website"  placeholder="http://www.notreal.not"></strong>
+		</p>
+	
+		<!-- Checkboxes (Notice the one that is checked by default) -->
+		<p>
+			<input type="checkbox" name="ownsLaptop"><strong>Own a Laptop</strong>&nbsp;&nbsp;
+			<input type="checkbox" name="ownsDesktop"><strong>Own a Desktop</strong>&nbsp;&nbsp;
+			<input type="checkbox" name="atSchool" checked><strong>Computers Available at School</strong><br>
+		</p>
+
+		<!-- Radio (Notice all share the same name) -->
+		<p>
+			<strong>Gender:</strong>
+			<input type="radio" name="gender" value="male">Male&nbsp;
+			<input type="radio" name="gender" value="female">Female
+		</p>
+
+		<!-- Radio (default selection) -->
+		<p>
+			<strong>Course to take:</strong>
+			<input type="radio" name="course" value="beginner" checked>Beginner&nbsp;
+			<input type="radio" name="course" value="intermediate">Intermediate&nbsp;
+			<input type="radio" name="course" value="advanced">Advanced&nbsp;
+		</p>
+
+		<!-- File Upload -->
+		<p>
+			<strong>Upload your transcript file</strong>
+			<input type="file" name="transcript">
+		</p>
+
+		<!-- textarea (Notice it does not use input) -->
+		<p>
+			<strong>Brief description of why you want to participate</strong><br>
+			<textarea rows="5" cols="80" name="description">Text in box</textarea>
+		</p>
+
+
+		<!-- select (Notice it does not use input) -->
+		<!-- To set the default choice use selected rather than checked -->
+		<p>
+			<strong>Describe your level of expertise</strong>
+			<select name="expertise">
+				<option value="amateur">Amateur</option>
+				<option value="proficient" selected>Proficient</option>
+			</select>
+		</p>
+
+		<!-- select (Notice it does not use input) -->
+		<!-- Notice that the name has a [] set -->
+		<!-- multiple is required for multiple selection -->
+		<p>
+			<strong>Select which development environments you have used.</strong><br>
+			<select name="environments[]" multiple>
+				<option value="Eclipse">Eclipse</option>
+				<option value="Netbeans">Netbeans</option>
+				<option value="CommandLine">CommandLine</option>
+				<option value="VS Code">VS Code</option>
+			</select>
+		</p>
+
+		<p>
+			<input type="reset">
+			<input type="submit">
+		</p>
+	</form>
+</body>
+
+</html>

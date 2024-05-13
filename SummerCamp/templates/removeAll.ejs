@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+	<title>adminRemove</title>
+</head>
+
+<body>
+    <h1>Removing All Applications</h1>
+
+    <form action="http://localhost:<%- portNumber %>/removeAll" method="post" onsubmit="removeAll()">
+        <input type="submit" value="Remove all applicants"/>
+        <hr>
+    </form>
+
+    <a href="/home">HOME</a>
+
+    <script>
+        function removeAll() {
+            let message = "Are you sure you want to remove all applicants";
+            return window.confirm(message);
+        }
+    </script>
+</body>

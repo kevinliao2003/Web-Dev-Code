@@ -1,0 +1,74 @@
+/***** HTML Selectors *****/
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	width: 52em;
+}
+
+h1 {
+	text-decoration: underline;
+}
+
+/***** Layout Logic *****/
+#headerOne #globe1 {
+	width: 6em;
+	height: 6em;
+	margin-left: 1em;
+	border-style: none;
+}
+
+#headerOne #deptcs {
+	width: 437px;
+	/* 487px, 52 px */
+	height: 47px;
+	margin-left: 3em;
+	border-style: none;
+	vertical-align: 1em;
+	padding: 0em;
+	margin-bottom: 0em;
+}
+
+#headerOne #passportHeader {
+	width: 251px;
+	height: 46px;
+	margin-left: 18em;
+	padding: 0;
+	margin-top: -1em;
+}
+
+
+#footer {
+	margin-top: 1em;
+	clear: both;
+	font-size: 1.25em;
+	border-style: double;
+	border-color: silver;
+	border-width: .25em;
+	height: 4.5em;
+	padding-top: .35em;
+	background-image: url(../images/background.jpg);
+}
+
+#footer ul {
+	list-style: none;
+}
+
+#footer p {
+	font-size: .85em;
+	font-style: italic;
+	text-align: center;
+}
+
+#footer li {
+	display: inline;
+	border-right-style: solid;
+	border-right-width: .05em;
+	border-right-color: gray;
+	padding-right: .3em;
+	padding-left: .25em;
+}
+
+#footerLastLi li {
+	display: inline;
+	border: none;
+}

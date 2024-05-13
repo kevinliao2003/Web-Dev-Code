@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Search App</title>
+	<style>
+		h1 {
+			text-decoration: underline;
+		}
+
+		h2 {
+			color: red;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Search App</h1>
+
+	<h2>Search using Google</h2> <!-- https://www.google.com/search?q=  -->
+	<form action="https://www.google.com/search" method="get">
+		Enter topic to search <input type="text" name="q">
+		<input type="submit" value="Search in Google">
+	</form>
+
+	<h2>Search using YouTube</h2> <!-- https://www.youtube.com/results?search_query=cat -->
+	<form action="https://www.youtube.com/results" method="get">
+		Enter topic to search <input type="text" name="search_query">
+		<input type="submit" value="Search in YouTube">
+	</form>
+</body>
+
+</html>
