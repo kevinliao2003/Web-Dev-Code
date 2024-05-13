@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <title>Tables</title>
+      <style>
+            table, td, th {
+                border: 1px solid gray
+            }
+        </style>
+</head>
+
+<body>
+      <table> <!-- Adding attribute border="1" creates border, but does not validate -->
+            <caption><em>Table Border 1</em></caption>
+            <tr>
+                  <th></th>
+                  <th>Exam1</th>
+                  <th>Exam2</th>
+            </tr>
+            <tr>
+                  <td>Student1</td>
+                  <td>10</td>
+                  <td>100</td>
+            </tr>
+            <tr>
+                  <td>Student2</td>
+                  <td>20</td>
+                  <td>200</td>
+            </tr>
+      </table>
+
+      <!-- Table with colspan -->
+      <table>
+            <caption><em>Table with colspan</em></caption>
+          
+            <tr>
+                  <th colspan="2">Exam1</th><th>Exam2</th>
+            </tr>
+            <tr>
+                  <td>Student1</td>
+                  <td>10</td>
+                  <td>100</td>
+            </tr>
+            <tr>
+                  <td>Student2</td>
+                  <td>20</td>
+                  <td>200</td>
+            </tr>
+      </table>
+
+      <!-- Table with rowspan (notice thead/tbody) -->
+      <table>
+            <caption><em>Table with rowspan</em></caption>
+            <thead>
+                  <tr>
+                        <th></th>
+                        <th>Exam1</th>
+                        <th>Exam2</th>
+                  </tr>
+            </thead>
+            <tbody>
+                  <tr>
+                        <td>Student1</td>
+                        <td>10</td>
+                        <td>100</td>
+                  </tr>
+                  <tr>
+                        <td rowspan="3">Student2</td>
+                        <td>20</td>
+                        <td>200</td>
+                  </tr>
+                  <tr>  <!-- Notice only two entries -->
+                        <td>40(Retaken)</td>
+                        <td>400(Retaken)</td>
+                  </tr>
+                  <tr>  <!-- Notice only two entries -->
+                        <td>60(Retaken)</td>
+                        <td>600(Retaken)</td>
+                  </tr>
+            </tbody>
+      </table>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inner HTML</title>
+</head>
+
+<body onload="main()">
+    <!-- Do not include input element in form -->
+    Provide value and press enter:
+    
+    <input type="text" id="myTextField" style="width:100px"><br>
+
+    <div id="displayArea">
+    </div>
+
+    <script>
+        function main() {
+            document.querySelector("#myTextField").onchange = displaySqrts;
+        }
+
+        function displaySqrts() {
+            let maximum = Number(document.querySelector("#myTextField").value);
+
+            let answer = "<table border='1'>";
+            for (let i = 1; i <= maximum; i++) {
+                answer += `<tr><td>${i}</td><td>${Math.sqrt(i)}</td><tr>`;
+            }
+            answer += "</table>";
+
+            // Try usingInner = true
+            let usingInner = true;
+            if (usingInner) {
+                document.querySelector("#displayArea").innerHTML = answer;
+            } else {
+                document.writeln(answer);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

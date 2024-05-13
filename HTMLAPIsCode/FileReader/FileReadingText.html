@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>File Reading</title>
+  </head>
+
+  <body>
+    <div>
+      Choose file to upload <input type="file" id="fileElement" />
+      <h2>File Contents Below</h2>
+      <pre id="displayArea"></pre>
+    </div>
+
+    <script>
+      "use strict";
+
+      document.getElementById("fileElement").onchange = loadData;
+
+      function loadData() {
+        /* Retrieving file name */
+        let filename = document.getElementById("fileElement").files[0];
+
+        /* Creating FileReader object */
+        let fileReader = new FileReader();
+
+        /* What to do once the file has been read */
+        fileReader.onload = () => {
+          document.getElementById("displayArea").innerHTML = fileReader.result;
+        };
+
+        /* Reading the file */
+        fileReader.readAsText(filename);
+      }
+    </script>
+  </body>
+</html>

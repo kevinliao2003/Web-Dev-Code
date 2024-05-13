@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JS Example</title>
+  </head>
+
+  <body>
+    <script>
+      document.writeln(
+        "Before function declaration: " + product(3, 4) + "<br>"
+      );
+
+      /* Function declaration */
+      function product(x, y) {
+        return x * y;
+      }
+      document.writeln("Function declaration: " + product(3, 4) + "<br>");
+
+      /* Function expression (anonymous function) */
+      let productTwo = function (x, y) {
+        return x * y;
+      };
+      document.writeln("Function expression: " + productTwo(100, 200) + "<br>");
+
+      /* Using Function constructor */
+      let productThree = new Function("x", "y", "return x * y");
+      document.writeln("Function constructor: " + productThree(2, 3));
+    </script>
+  </body>
+</html>

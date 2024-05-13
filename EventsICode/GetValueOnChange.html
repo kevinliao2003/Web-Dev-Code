@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Get Value in Text Field</title>
+</head>
+
+<body onload="main()">
+    
+    <form>
+        Provide value and press enter:
+        <input type="text" id="myTextField" style="width:100px"><br>
+    </form>
+
+    <script>
+        function main() {
+            document.querySelector("#myTextField").onchange = displayValue;
+        }
+
+        function displayValue() {
+            /* To get the value from the text field you need to use value */
+            let textProvided = document.querySelector("#myTextField").value;
+
+            alert("Value Provided: " + textProvided);
+            alert("Adding 10 to the value provided generates: " + (Number(textProvided) + 10));
+        }
+
+    </script>
+</body>
+
+</html>

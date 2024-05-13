@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Associate Button with Function</title>
+</head>
+
+<body onload="main()"> <!-- Important; we are executing main() once document is ready -->
+    <form>
+        <input type="button" id="displayMessageButton" value="Display Message">
+        <input type="button" value="Display School Name" onclick="displaySchoolName()">
+        <input type="button" id="displayTimeButton" value="Display time">
+        
+    </form>
+
+    <script>
+        /*
+         * main is now being called in <body> onload = "main()" says:
+         * "execute main when page has been created"
+         */
+        function main() {
+            /* Next statement allow us to access the button from JavaScript */
+            let buttonInHTMLForm = document.getElementById("displayMessageButton");
+
+            /* Following assignment says: when the button is clicked on call the displayValue function */
+            buttonInHTMLForm.onclick = displayMessage; // DO NOT PUT ()
+
+            document.querySelector("#displayTimeButton").addEventListener("click", () => alert(new Date()));
+        }
+
+        function displayMessage() {
+            alert("Fear the turtle");
+        }
+
+        function displaySchoolName() {
+            alert("UMCP");
+        }
+    </script>
+</body>
+
+</html>

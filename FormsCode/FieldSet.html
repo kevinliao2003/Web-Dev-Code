@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FieldSet and Legend</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>
+                <strong>User Information</strong>
+            </legend>
+            
+            <label>First Name: <input type="text"></label><br><br>
+            <label>Last Name: <input type="text"></label><br><br>
+        
+            How many pairs of shoes do you own?<br>
+            <label><input type="radio" name="shoes">0 to 5 pairs</label><br>
+            <label><input type="radio" name="shoes">6 to 10 pairs</label><br>
+            <label><input type="radio" name="shoes">11 to 30 pairs</label><br>
+            <label><input type="radio" name="shoes" checked="checked">31 or more pairs</label><br>
+        </fieldset>
+        <hr>
+        
+        <fieldset>
+            <legend>
+                <strong>Responses</strong>
+            </legend>
+            
+            Please tell us which of our products you own:<br>
+            <label><input type="checkbox">Shoe Polish</label><br>
+            <label><input type="checkbox">Shoe Horn</label><br>
+            <label><input type="checkbox">Closet Shoe Tree</label><br>
+            <br>
+            Please tell us why you love our products:<br>
+            <textarea rows="10" cols="40"></textarea><br>
+        </fieldset>
+    </form>
+</body>
+</html>

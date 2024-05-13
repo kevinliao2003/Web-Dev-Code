@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Labels</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <form>
+        <h1>User Information</h1>
+
+        <!-- Input element is embedded in label -->
+        <!-- Clicking on "First Name:" text will change focus to this element -->
+        <label>First Name: <input type="text"></label>
+        <br><br>
+
+        <!-- Relying on id and for to link label and input element -->
+        <label for="lastname">Last Name: </label><input type="text" id="lastname">
+        <br><br>
+        
+        <label for="middlename">Middle Name: </label>
+        <p>text separating label from text field to show
+           that label still changes focus to the text field
+           below (click on Middle Name:)
+        </p>
+        <br><br>
+        <input type="text" id="middlename">
+        <br><br>
+        <!-- Clicking on "School:" text will NOT change focus to this element -->
+        <!-- as we are not using a label -->
+        School: <input type="text">
+        <br><br>
+        
+        <input type="reset">
+    </form>
+
+</body></html>

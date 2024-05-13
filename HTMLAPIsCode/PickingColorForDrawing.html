@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Picking Color for Drawing</title>
+</head>
+
+<body>
+	<canvas id="canvas" width="200" height="200"></canvas>
+	<h1>Selecting Color</h1>
+	<h3>Select color and press enter</h3>
+	<input type="color" id="color" onchange="processChosenColor()">
+	<input type="text" id="chosenColorField" value="red">
+	
+	<script>
+		"use strict";
+
+		let color = "red",
+			sideLength = 5;
+
+		document.onmousemove = (evt) => {
+			let context = document.getElementById("canvas").getContext("2d");
+			context.fillStyle = color;
+			context.fillRect(evt.pageX, evt.pageY, sideLength, sideLength);
+		};
+
+		function processChosenColor() {
+			color = document.getElementById("color").value;
+			document.getElementById("chosenColorField").value = color;
+		}
+
+	</script>
+</body>
+
+</html>

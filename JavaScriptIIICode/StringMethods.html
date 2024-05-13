@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>String Methods</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      main();
+
+      function main() {
+        let str1 = prompt("Enter string value", "the roadmap");
+        let str2 = prompt("Enter string value", "map"),
+          result;
+
+        /* string comparison */
+        if (str1 <= str2) {
+          document.writeln(str1 + " <= " + str2);
+        } else if (str1 > str2) {
+          document.writeln(str1 + " > " + str2);
+        } else {
+          document.writeln("str1 equal to str2");
+        }
+
+        if (str1.includes(str2)) {
+          document.writeln("<br>" + str1 + " includes " + str2);
+        } else {
+          document.writeln("<br>" + str1 + " does not include " + str2);
+        }
+
+        if (str1.startsWith("the")) {
+          document.writeln("<br>" + str1 + ' starts with "the"');
+        } else {
+          document.writeln("<br>" + str1 + ' does not start with "the"');
+        }
+
+        if (str1.endsWith("ing")) {
+          document.writeln("<br>" + str1 + ' ends with "ing"');
+        } else {
+          document.writeln("<br>" + str1 + ' does not end with "ing"');
+        }
+
+        document.writeln(
+          '<br>"Fear the turtle".indexOf("the")&rarr;' +
+            "Fear the turtle".indexOf("the")
+        );
+        document.writeln(
+          '<br>"Fear the turtle".indexOf("boat")&rarr;' +
+            "Fear the turtle".indexOf("boat")
+        );
+        document.writeln(
+          '<br>"Fear the turtle".indexOf("")&rarr;' +
+            "Fear the turtle".indexOf("")
+        );
+        document.writeln(
+          '<br>"Fear the turtle".lastIndexOf("e")&rarr;' +
+            "Fear the turtle".lastIndexOf("e")
+        );
+
+        document.writeln("<br>" + str1 + ".repeat(3)&rarr;" + str1.repeat(3));
+        document.writeln(
+          "<br>" + '"Feartheturtle".slice(2, 7) ' + "Feartheturtle".slice(2, 7)
+        );
+        document.writeln(
+          "<br>" + '"Feartheturtle".slice(-7) ' + "Feartheturtle".slice(-7)
+        );
+
+        str1 = prompt("Enter comma separated string", "10, 5, 67");
+        let strArray = str1.split(",");
+        document.writeln("<br>Comma Separated String Elements:<br>");
+        for (let i = 0; i < strArray.length; i++) {
+          document.writeln(
+            strArray[i] + "* Length: " + strArray[i].length + "<br>"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

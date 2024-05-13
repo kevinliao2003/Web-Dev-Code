@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        main();
+
+        function getLetter(name, body, signature) {
+            let letter = `<br>Dear ${name}:
+                              <br>
+                            <br>
+                          ${body}
+                          <br>
+                          <br>  
+                          Sincerely
+                          <br><br><br>
+                          ${signature}<hr>`;
+            alert(letter);
+            return letter;
+        }
+
+        function sum(x, y) {
+            return x + y;
+        }
+
+        function main() {
+            document.writeln("***** Interpolating Variable *****<br>");
+            let mascot = "turtle";
+            let message = `Fear the ${mascot}`;
+            document.writeln(message + "<br><br>");
+
+            document.writeln("<br>***** Generating Letter *****<br>");
+            document.writeln(getLetter("Mary", "How are you doing?", "Peter"));
+            
+            document.writeln("***** Interpolating Expression *****<br>");
+            let x = 20,y = 30;
+            let totalCost = `<br>Total Cost is ${x * y}`;
+            document.writeln(totalCost);
+
+            document.writeln("***** Interpolating Function Call *****<br>");
+            let sumResult = `<br>Sum is ${sum(x, y)}`;
+            document.writeln(sumResult);
+
+            document.writeln("<br><br>***** Space in Template Literals Matters  *****<br>");
+            const string = `Hello
+
+	 terps!`;
+
+            document.writeln("<pre>" + string + "</pre>");
+        }
+
+    </script>
+</body>
+
+</html>

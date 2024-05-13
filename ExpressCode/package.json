@@ -1,0 +1,22 @@
+{
+  "name": "expresscode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "additionalFunc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon .\readFileAsync.js",
+    "readFile": "nodemon .\readFileAsync.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

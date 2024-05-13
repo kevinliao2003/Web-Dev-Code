@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Arrays</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      main();
+
+      function main() {
+        let numOfBeds = 4;
+
+        let roomNumber = reserveRoom(numOfBeds);
+        printRoom(roomNumber);
+
+        cleanRoom(roomNumber);
+        printRoom(roomNumber);
+      }
+
+      function reserveRoom(numberOfBeds) {
+        let roomNumber = new Array(numberOfBeds);
+
+        for (let idx = 0; idx < roomNumber.length; idx++) {
+          roomNumber[idx] = "Bed" + idx;
+        }
+
+        return roomNumber;
+      }
+
+      function printRoom(roomNumberParameter) {
+        for (let idx = 0; idx < roomNumberParameter.length; idx++) {
+          document.writeln(roomNumberParameter[idx] + "<br>");
+        }
+      }
+
+      function cleanRoom(roomNumberParameter) {
+        for (let idx = 0; idx < roomNumberParameter.length; idx++) {
+          roomNumberParameter[idx] += " cleaned ";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Network</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        /* You need to allow browser pop-ups to run this program */
+        let network = prompt("Enter network name (abc, cbs)");
+        alert("Network specified is: " + network);
+        let webSite;
+
+        switch (network) {
+            case "abc":
+                webSite = "http://www.abc.com/";
+                break;
+            case "cbs":
+                webSite = "http://www.cbs.com/";
+                break;
+            default:
+                webSite = "http://www.cnn.com/";
+                break;
+        }
+        window.open(webSite);
+
+    </script>
+</body>
+
+</html>

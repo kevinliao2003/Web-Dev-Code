@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+         /* Anonymous function */
+        let productFunc = function(x) {
+            return x * 3;
+        }
+        document.writeln("productFunc(10): " + productFunc(10) + "<br>");
+
+
+        /* No parameters */
+        let initialValue = () => 1000;
+        document.writeln("initialValue(): " + initialValue() + "<br>");
+
+
+        /* One parameter and expression as returned value */
+        let prod2 = x => x * 2;
+        document.writeln("prod2(10): " + prod2(10) + "<br>");
+
+        /* More than one parameter and expression as returned value */
+        let sum = (x, y, z) => x + y + z;
+        document.writeln("sum(10, 2, 4): " + sum(10, 2, 4) + "<br>");
+
+        /* We need curly brackets */
+        let formatted = x => {
+            x++;
+            return `Value: ${x}`;  /* return is needed */
+        };
+        document.writeln("formatted(5): " + formatted(5) + "<br>")
+
+        /* Using functions with sort() */
+        let scores = [10, 1, 44, 200];
+        let sortedAttempt1 = scores.sort();
+        document.writeln("sortedAttempt1 (Wrong): " + sortedAttempt1 + "<br>");
+        let sortedAttempt2 = scores.sort((a, b) => a - b);
+        document.writeln("sortedAttempt2 (Correct): " + sortedAttempt2 + "<br>");
+
+    </script>
+</body>
+
+</html>

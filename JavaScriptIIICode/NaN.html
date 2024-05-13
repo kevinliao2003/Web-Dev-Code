@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>NaN example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        main();
+
+        function main() {
+            let examScore = 84.5,
+                name = "Mary Smith", message = "";
+
+            message += "examScore is a not number: " + isNaN(examScore) + "<br>"; 
+            message += "window.isNaN(NaN): " + window.isNaN(NaN) + "<br>";
+            message += "Number.isNaN(NaN): " + Number.isNaN(NaN) + "<br>";
+            message += "empty string to number: " + Number("") + "<br>";
+            message += "string to number: " + Number(name) + "<br><br>";
+            
+            
+            message += "empty string is not a number: " + window.isNaN("") + "<br>";
+            message += "empty string is not a number: " + Number.isNaN("") + "<br><br>";
+            
+           
+            message += `"${name}" is not a number: ` + window.isNaN(name) + "<br>";
+            message += `"${name}" is not a number: ` + Number.isNaN(name) + "<br><br>";
+           
+            message += "NaN == NaN: " + (NaN == NaN) + "<br>";
+            message += "NaN === NaN: " + (NaN === NaN) + "<br><br>";
+          
+
+            message += "\"-24\" is a number: " + !isNaN("24") + "<br>";
+            message += "\"+24\" is a number: " + !isNaN("+24") + "<br>";
+            message += "parseInt(\"24Hi\"): " + parseInt("24Hi") + "<br>";
+            message += "parseFloat(\"55.78Hi\"): " + parseFloat("55.78Hi") + "<br>";
+            message += "parseInt(\"Hi\"): " + parseInt("Hi") + "<br><br>";
+            
+            
+            message += "Number(\"24Hi\"): " + Number("24Hi") + "<br>";
+            message += "\"24Hi\" is a number: " + !window.isNaN("24Hi") + "<br>";
+            message += "\"24Hi\" is a number: " + !Number.isNaN("24Hi") + "<br>";
+            
+            
+           
+            document.writeln(message);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Array Slice Example</title>
+</head>
+
+<body>
+	<script>
+		"use strict";
+
+		let arr = new Array();
+		arr.push({
+			name: 'Maryland'
+		});
+		arr.push({
+			name: 'Virginia'
+		});
+		arr.push({
+			name: 'Delaware'
+		});
+
+        document.writeln("<strong>Check console for array information</strong><br>");
+        console.log("\n\nOriginal array");
+        console.table(arr);  /* Notice the use of console.table() */
+		let sliced = arr.slice(1, 3); /* Only VA and DE */
+		console.log("\n\nResult of slice 1, 3");
+		console.table(sliced);
+
+        /* Modifying entry of sliced */
+		sliced[0].name = 'Texas'; 
+
+		console.log("\n\nPrinting original and sliced array after ");
+        console.log("modification (Texas) (shows shallow copy)");
+        console.log("\n\nOriginal array");
+        console.table(arr); 
+        console.log("\n\nsliced array");
+		console.table(sliced);
+		
+	</script>
+</body>
+
+</html>

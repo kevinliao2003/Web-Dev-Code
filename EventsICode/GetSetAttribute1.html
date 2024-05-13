@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Get/Set Attribute in HTML Element</title>
+</head>
+
+<body onload="main()">
+    <form>
+        <img id="theImage" src="images/Testudo1.jpg" alt="viewerImg"><br>
+        <input type="button" id="changeImageButton" value="Change Image"><br>
+        You can also change the image by double-clicking on the image.
+    </form>
+
+    <script>
+        function main() {
+            document.querySelector("#changeImageButton").onclick = changeImage;
+        
+            let imageElement = document.querySelector("#theImage");
+
+            // imageElement.ondblclick = changeImage; // When double-clicking on image we call changeImage 
+            // same as above but using addEventListener               
+            imageElement.addEventListener("dblclick", changeImage);
+        }
+
+        function changeImage() {
+            let imageElement = document.getElementById("theImage");
+            let currentPhoto = imageElement.getAttribute("src"); // retrieving value of src attribute
+
+            alert("Current photo being displayed is: " + currentPhoto);
+            let photoToDisplay = prompt("Enter name of photo to display", "images/Testudo1 2 3.jpg");
+            imageElement.setAttribute("src", photoToDisplay);
+        }
+
+    </script>
+</body>
+
+</html>

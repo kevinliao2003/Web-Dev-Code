@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="utf-8">
+        <title>Example</title>	
+    </head>
+
+    <body>
+        <script>
+			"use strict";
+			const minimumLength = 4;
+			const password = prompt("Enter password");
+			const specialCharacters = /[$%#]/;
+			const digits = /[0123456789]/;
+
+			let message;
+
+			if (password.length < minimumLength) {
+				message = "error, invalid length";
+			} else if (!specialCharacters.test(password)){
+				message = "error, no special chars";	
+			} else if (!digits.test(password)){
+				message = "error, no digit";
+			} else {
+				message = "Yes!!!";
+			}
+			document.writeln(message);
+	    </script>
+    </body>
+</html>

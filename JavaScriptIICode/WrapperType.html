@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wrapper object type example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        function comparison(test, x, y) {
+            let answer = "";
+
+            answer += "Test: " + test + "<br>";
+            answer += "type of x " + typeof x + "<br>";
+            answer += "type of y " + typeof y + "<br>";
+            answer += "x == y &rarr; " + (x == y) + "<br>";
+            answer += "x === y &rarr; " + (x === y) + "<br>";
+            answer += "x.localeCompare(y) &rarr; " + x.localeCompare(y) + "<br><br>";
+            document.writeln(answer);
+        }
+        comparison("test1", "Testudo", new String("Testudo"));
+        comparison("test2", "Testudo", String("Testudo"));
+        comparison("test3", String("Testudo"), new String("Testudo"));
+        comparison("test4", new String("Testudo"), new String("Testudo"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Array Methods</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        main();
+
+        function printArray(data) {
+            var i;
+
+            for (i = 0; i < data.length; i++) {
+                document.writeln(data[i] + " ");
+            }
+            document.writeln("<br>");
+        }
+
+        function main() {
+            document.writeln("***** Creating Array *****<br>");
+            let languages = ["JavaScript", "Java", "PHP", "Python"];
+            document.writeln("Array of Languages: " + languages + "<br>")
+            document.writeln("Length: " + languages.length + "<br><br>");
+            
+
+            document.writeln("***** After pushing C *****<br>");
+            languages.push("C"); //appends elemnt "C" to end of array
+            document.writeln("Languages: " + languages.join() + "<br><br>"); /* Using join() */
+
+            
+            document.writeln("***** After pop *****<br>");
+            let popped = languages.pop(); //removes the rightmost element of array
+            document.writeln("Popped element: " + popped + "<br>");
+            document.writeln("Languages: " + languages.join("*") + "<br><br>"); /* Using join() */
+
+            
+            document.writeln("***** After shift *****<br>");
+            let shiftedElement = languages.shift();
+            document.writeln("Shifted element: " + shiftedElement + "<br>");
+            document.writeln("Languages: " + languages.join("---") + "<br><br>"); /* Using join() */
+
+            
+            document.writeln("***** After unshift *****<br>");
+            languages.unshift(shiftedElement);
+            document.writeln("Languages: " + languages.join(",") + "<br><br>");
+
+            
+            document.writeln("***** Finding index of Python *****<br>");
+            document.writeln("Languages: " + languages.join(",") + "<br>");
+            document.writeln("Index: " + languages.indexOf("Python") + "<br><br>");
+            
+            
+            document.writeln("***** Using splice *****<br>");
+            languages = ["JavaScript", "Java", "PHP", "Python", "Ruby", "C#"];
+            document.writeln("Languages: " + languages.join(",") + "<br>");
+            let start = 1, end = 3;
+            document.writeln("Using arguments " + start + ", " + end + "<br>");
+            let returnedValue = languages.splice(start, end);
+            document.writeln("Languages array after splice: " + languages.join(",") + "<br>");
+            document.writeln("Value returned by splice: " + returnedValue.join(",") + "<br><br>");
+            
+            
+            document.writeln("***** Using slice *****<br>");
+            languages = ["JavaScript", "Java", "PHP", "Python", "Ruby", "C#"];
+            document.writeln("Languages: " + languages.join(",") + "<br>");
+            start = 1, end = 3;
+            document.writeln("Using arguments " + start + ", " + end + "<br>");
+            returnedValue = languages.slice(start, end);
+            document.writeln("Languages array after slice: " + languages.join(",") + "<br>");
+            document.writeln("Value returned by slice: " + returnedValue.join(",") + "<br><br>");
+        
+            
+            document.writeln("***** Using reverse *****<br>");
+            let seasons = ["Fall", "Winter", "Spring", "Summer"];
+            document.writeln("Seasons: " + seasons.join(",") + "<br>");
+            seasons.reverse();
+            document.writeln("After reversing seasons array: " + seasons.join(", ") + "<br><br>");
+          
+            
+            document.writeln("***** Using concat *****<br>");
+            let part1 = [10, 20, 30], part2 = [40, 60];
+            document.writeln("Concatenating: " + part1.join() + " and " + part2.join() + "<br>");
+            let combined = part1.concat(part2);
+            document.writeln("Concatenating result: " + combined + "<br><br>");
+         
+            
+            document.writeln("***** Using fill *****<br>");
+            document.writeln("Filling array with value 100<br>");
+            let filled = new Array(4).fill(100);
+            document.writeln("Result: " + filled + "<br><br>");
+        }
+
+    </script>
+</body>
+
+</html>

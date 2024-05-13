@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Animation Example</title>
+</head>
+
+<body onload="main()">
+    <h1>Animation Example</h1>
+    <img id="myImage" src="images/Testudo1.jpg" width="444" height="293" alt="animationImg"><br>
+    <input type="button" onclick="stopAnimation()" value="Stop Animation">
+    <input type="button" onclick="main()" value="Resume Animation">
+
+    <script>
+        let idGlobal;
+        const intervalInMilliseconds = 1000;
+
+        function main() {
+            /* setInterval calls the function swapImages at the specified rate */
+            idGlobal = setInterval("swapImages()", intervalInMilliseconds);
+        }
+
+        function swapImages() {
+            let imageElement = document.querySelector("#myImage");
+            let currentImage = imageElement.src, nextImage;
+           
+            if (currentImage.includes("Testudo1.jpg")) {
+                nextImage = "images/Testudo2.jpg";
+            } else if (currentImage.includes("images/Testudo2.jpg")) {
+                nextImage = "images/Testudo3.jpg";
+            } else {
+                nextImage = "images/Testudo1.jpg";
+            }
+            imageElement.src = nextImage;
+        }
+        
+        function stopAnimation() {
+            clearInterval(idGlobal);
+            alert("Animation Stopped");
+        }
+    </script>
+</body></html>

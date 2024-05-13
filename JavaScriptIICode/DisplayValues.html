@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Process Values</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      main();
+
+      function main() {
+        let numberOfValues = Number(prompt("Enter number of values to print"));
+        let wantHTML = window.confirm(
+          "Press OK for formatted output and Cancel otherwise"
+        );
+        let printingFunction;
+
+        if (wantHTML) {
+          printingFunction = htmlFormatFunction;
+        } else {
+          printingFunction = textFormatFunction;
+        }
+
+        displayValues(numberOfValues, printingFunction);
+      }
+
+      function textFormatFunction(data) {
+        document.writeln(data);
+      }
+
+      function htmlFormatFunction(data) {
+        let output = "<span style='color:red;font-size:4em'><strong>";
+
+        output += data + " </strong></span>";
+        document.writeln(output);
+      }
+
+      function displayValues(maximum, printFunction) {
+        for (let curr = 1; curr < maximum; curr++) {
+          printFunction(curr);
+        }
+        printFunction(maximum);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Update Value in Text Field</title>
+</head>
+
+<body onload="main()">
+    <form>
+        Enter Value
+        <input type="text" id="myTextField" value="4"><br><br>
+        <input type="button" id="ComputeValueButton" value="Compute Sqrt"> 
+        (press button multiple times and look at textfield)<br><br>
+        <input type="reset" value="Reset">
+    </form>
+    <script>
+
+        function main() {
+            document.getElementById("ComputeValueButton").onclick = displayValue; // DO NOT PUT ()
+        }
+
+        function displayValue() {
+            let myTextFieldElement = document.getElementById("myTextField");
+            let textProvided = myTextFieldElement.value;
+            let numericValue = Number(textProvided);
+
+            /* Updating the textfield */
+            myTextFieldElement.value = Math.sqrt(numericValue);
+        }
+    </script>
+</body>
+
+</html>

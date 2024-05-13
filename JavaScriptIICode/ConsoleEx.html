@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        let option = prompt("Enter error, info, warn or log");
+
+        if (option === "error") {
+            console.error("Using console.error");
+        } else if (option === "info") {
+            console.info("Using console.info");
+        } else if (option === "warn") {
+            console.warn("Using console.warn");
+        } else if (option === "log") {
+            console.log("Using console.log");
+        } else {
+            console.log("Invalid option: " + option);
+        }
+
+    </script>
+</body>
+
+</html>

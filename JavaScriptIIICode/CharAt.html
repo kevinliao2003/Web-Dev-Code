@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>charAt Example</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      main();
+
+      function main() {
+        let value = prompt("Enter four digit value"),
+          message;
+
+        if (validDigits(value, 4)) {
+          message = "Correct value provided";
+        } else {
+          message = "Incorrect value provided";
+        }
+        alert(message);
+      }
+
+      function findInstancesOfChar(str, target) {
+        let count = 0;
+
+        for (let idx = 0; idx < str.length; idx++) {
+          if (str[idx] === target) {
+            count++;
+          }
+        }
+
+        return count;
+      }
+
+      function validDigits(data, length) {
+        if (data.length !== length) {
+          return false;
+        } else {
+          for (let idx = 0; idx < data.length; idx++) {
+            if (isNaN(data.charAt(idx))) {
+              return false;
+            }
+          }
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

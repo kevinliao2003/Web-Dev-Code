@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>typeof and instanceof</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        const myInfoObj = {
+            name: "John",
+            id: 10
+        };
+        const scoresArray = [10, 30];
+        let name = "Peter", gpa = 4.0, hungry = true;
+        let myUndefinedVariable;
+        let myNullVariable = null;
+        let mySymbol = Symbol("A");
+
+        document.writeln("<h2>typeof examples</h2>");
+        document.writeln("typeof name: " + typeof name + "<br>");
+        document.writeln("typeof gpa: " + typeof gpa + "<br>");
+        document.writeln("typeof hungry: " + typeof hungry + "<br>");
+        document.writeln("typeof myUndefinedVariable: " + typeof myUndefinedVariable + "<br>");
+        document.writeln("typeof myNullVariable: " + typeof myNullVariable + "<br>");
+        
+        document.writeln("typeof mySymbol: " + typeof mySymbol + "<br>");
+        document.writeln("typeof myInfoObj: " + typeof myInfoObj + "<br>");
+        document.writeln("typeof scoresArray: " + typeof scoresArray + "<br>");
+        document.writeln("typeof printSchoolName: " + typeof printSchoolName + "<br><br>");
+
+        document.writeln("<h2>instanceof examples</h2>");
+        document.writeln("myInfoObj instance of Object: " + (myInfoObj instanceof Object) + "<br>");
+        document.writeln("scoresArray instance of Object: " + (scoresArray instanceof Object) + "<br>");
+        document.writeln("scoresArray instance of Array: " + (scoresArray instanceof Array) + "<br>");
+        document.writeln("printArray instance of Function: " + (printSchoolName instanceof Function) + "<br><br>");
+
+        document.writeln("<h2>Array.isArray</h2>");
+        document.writeln("Array.isArray(myInfoObj): " + Array.isArray(myInfoObj) + "<br>");
+        document.writeln("Array.isArray(scoresArray): " + Array.isArray(scoresArray) + "<br>");
+        document.writeln("Array.isArray(printSchoolName): " + Array.isArray(printSchoolName) + "<br>");
+
+
+        function printSchoolName() {
+            document.writeln("UMCP");
+        }
+    </script>
+</body></html>

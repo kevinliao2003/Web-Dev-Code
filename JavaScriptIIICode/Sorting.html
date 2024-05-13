@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sorting</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        main();
+
+        function main() {
+            document.writeln("***** Strings sorting *****<br>");
+            let names = ["Rose", "Bob", "Tom", "Albert"];
+            document.writeln("Original array: " + names.join() + "<br>");
+            names.sort(); /* Sorting */
+            document.writeln("After sorting array: " + names.join() + "<br><br>");
+
+            document.writeln("***** Numerical sorting (unicode code point order generates ");
+            document.writeln("unexpected result) *****<br>");
+            let scores = [30, 2, 4, 5];
+            document.writeln("Original array: " + scores.join() + "<br>");
+            scores.sort(); /* Sorting */
+            document.writeln("Wrong sort: " + scores.join() + "<br><br>");
+
+            document.writeln("***** Numerical sorting (using comparison function) *****<br>");
+            scores.sort(function(x, y) {
+                return x - y;
+            });
+            document.writeln("After sorting: " + scores.join() + "<br><br>");
+
+
+            document.writeln("***** Sorted names in descending order *****<br>");
+            names.sort(strCompareDescending);
+            document.writeln(names.join() + "<br><br>");
+
+            document.writeln("***** Sorting array of objects (students) by name *****<br>");
+            document.writeln("See console for results");
+            let students = [{
+                    name: "John",
+                    id: 3
+                },
+                {
+                    name: "Peter",
+                    id: 2
+                },
+                {
+                    name: "Mary",
+                    id: 10
+                }
+            ];
+
+            students.sort(function(x, y) {
+                return x.name.localeCompare(y.name); // or return strCompare(x.name, y.name); 
+            });
+
+            console.log("\n\nResult of sorting students by name");
+            console.table(students);
+
+            document.writeln("<br><br>Using sort to randomize an array (reload the page several times)<br>");
+            let data = [2, 3, 4, 5];
+            document.writeln("Original array: " + data.join() + "<br>");
+            data.sort((x, y) => Math.random() - 0.5);
+            document.writeln("Randomized array: " + data.join());
+        }
+
+        function strCompareDescending(x, y) {
+            if (x < y) {
+                return 1;
+            } else if (x > y) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+        function strCompare(x, y) {
+            if (x < y) {
+                return -1;
+            } else if (x > y) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

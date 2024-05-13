@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Program Template</title>
+</head>
+
+<body>
+    john
+    peter
+    <script>
+        "use strict";
+
+        console.log("window contents");
+        console.log(window);
+
+        console.log("globalThis contents");
+        console.log(globalThis);
+
+        let message;
+        if (window === globalThis) {
+            message = "the same";
+        } else {
+            message = "they are not the same";
+        }
+    
+        document.writeln(message, "<br>");
+        let finalMessage = message + "<br>" + "Done";
+        alert(finalMessage);
+
+        var value = 10;
+        console.log("window.value is: " + window.value);
+        
+        let secondValue = 10;
+        console.log("window.secondValue is: " + window.secondValue);
+        document.writeln("Output available in the console");
+    </script>
+</body>
+
+</html>

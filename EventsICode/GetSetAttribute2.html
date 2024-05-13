@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Get/Set Attribute in HTML Element</title>
+</head>
+
+<body onload="main()">
+    <form>
+        <img id="theImage" src="images/Testudo1.jpg" alt="viewerImg"><br>
+        <input type="button" id="changeImageButton" value="Change Image"><br>
+        You can change also change the image by double clicking on the image.
+    </form>
+
+    <script>
+        function main() {
+            document.querySelector("#changeImageButton").onclick = changeImage; 
+            document.querySelector("#theImage").ondblclick = changeImage;
+        }
+
+        function changeImage() {
+            let currentPhoto = document.querySelector("#theImage").src;
+
+            alert("Current photo being displayed is: " + currentPhoto);
+            
+            let photoToDisplay = prompt("Enter name of photo to display", "images/Testudo1 2 3).jpg");
+            document.querySelector("#theImage").src = photoToDisplay;
+        }
+
+    </script>
+</body>
+
+</html>

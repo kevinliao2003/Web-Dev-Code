@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>JS Truthy Falsy Example</title>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js">
+	</script>
+</head>
+
+<body>
+	<script>
+		"use strict";
+        
+        function isTruthy(value, hide) {
+			let message = "";
+
+			if (!hide) {
+			   message += value;
+			}
+			message += (value ? " is Truthy!": " is Falsy!");
+			document.writeln(message + "<br>");
+		}
+
+        document.writeln("********** FIRST SET (all falsy) **********<br>");
+		isTruthy(false);
+		isTruthy(0);
+		document.write("Empty string:"); isTruthy("");
+		isTruthy(null);
+		isTruthy(undefined);
+		isTruthy(NaN);
+
+        document.writeln("<br>********** SECOND SET (all truthy) **********<br>");
+		document.write(`"0"`); isTruthy("0", true);
+		document.writeln(`"false"`); isTruthy("false", true);
+		document.write(`{}`);isTruthy({}, true);
+		document.write(`[]`);isTruthy([], false);
+		isTruthy(Math.PI);
+		isTruthy("Hello everyone");
+
+        document.writeln("<br>********** THIRD SET **********<br>");
+		let date1 = new Date('2020-09-21T12:30:00');
+		let date2 = new Date('September 21, 2020 12:30:00')
+		document.writeln(`date1: ${date1}`);isTruthy(date1, true);
+		document.writeln(`date2: ${date2}`);isTruthy(date1, true);
+		
+        document.writeln(`date1 == date2 ${date1 == date2}<br>`);
+	    document.writeln(`date1 === date2 ${date1 === date2}<br>`);
+	
+
+		document.writeln("<br>********** FOURTH SET (using Lodash) **********<br>");
+		/* Using Lodash function lib. isEqual performs deep comparison */
+		document.writeln(`_.isEqual(date1, date2): ${_.isEqual(date1, date2)}<br>`);
+
+		document.writeln("<br>********** FIFTH SET (current date) **********<br>");
+		let now = new Date();
+		document.writeln(`now&rarr;${now}<br>`);
+		document.writeln(`isTruthy(now)`); isTruthy(now, true);
+		document.writeln(now);
+
+	</script>
+</body>
+
+</html>

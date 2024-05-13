@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arrays Length Property</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        main();
+
+        function main() {
+            let languages = ["English", "Spanish", "French"];
+
+            document.writeln("Array: ");
+            printArray(languages);
+            document.writeln("Length: " + languages.length + "<br><br>");
+
+            /* See what values are used for the elements in the middle */
+            languages[8] = "Italian";
+            document.writeln("After adding Italian<br>");
+            printArray(languages);
+
+            /* The Object.keys() method returns an array of a given
+               object's own enumerable property names, in the same order as
+               we get with a normal loop. */
+            let keys = Object.keys(languages);
+            document.writeln("<br>Keys: " + keys + "<br>");
+            document.writeln("Keys length: " + keys.length + "<br>");
+            document.writeln("Languages length: " + languages.length + "<br>");
+
+            languages.length = 2;
+            document.writeln("<br>After changing length<br>");
+            printArray(languages);
+
+        }
+
+        function printArray(data) {
+            for (let i = 0; i < data.length; i++) {
+                document.writeln(data[i] + " ");
+            }
+            document.writeln("<br>");
+        }
+    </script>
+</body></html>

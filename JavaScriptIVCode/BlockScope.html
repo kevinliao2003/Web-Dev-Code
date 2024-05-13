@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Scope</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        /* Try each of the following function calls */
+        document.writeln("<h2>Testing var and let</h2>");
+        // usingVar();
+        // usingLet();
+        // let answer = evaluateVar(200); document.writeln("|Answer is: " + answer +"<br>");
+        // let answer = evaluateLet(200); document.writeln("|Answer is: " + answer +"<br>");
+        
+        function usingVar() {
+            for (var i = 1; i <= 4; i++) { 
+                document.writeln(i + " ");
+            }
+            document.writeln("<br>value of i outside loop: " + i + "<br>");
+        }
+
+        function usingLet() {
+            for (let i = 1; i <= 4; i++) {
+                document.writeln(i + " ");
+            }
+            document.writeln("<br>Check console result");
+            document.writeln("<br>value of i outside loop: " + i + "<br>");
+        }
+
+        function evaluateVar(x) {
+            if (x >= 100) {
+                var y = x * 100; 
+                document.writeln("Value in if: " + y);
+            }
+            return y;
+        }
+        
+        function evaluateLet(x) {
+            if (x >= 100) {
+                let y = x * 100; 
+                document.writeln("Value in if: " + y);
+            }
+            document.writeln("<br>Check console result");
+            return y; // Generates ReferenceError
+        }
+    </script>
+</body></html>

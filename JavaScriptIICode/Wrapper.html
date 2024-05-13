@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>charAt Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        let name = "Testudo";
+        let letter = name.charAt(1); /* Autoboxing takes place */
+        document.writeln("Letter is " + letter + "<br>");
+
+        // JavaScript engine processing for above code
+        name = "Testudo";
+        let x = new String(name);
+        letter = x.charAt(1);
+        x = null; /* x will be destroyed once is no longer needed */
+
+        document.writeln("Letter is " + letter);
+
+    </script>
+</body>
+
+</html>

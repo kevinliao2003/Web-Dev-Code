@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>typeof and instanceof</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      let address = {
+        street: "PaintBranch",
+        city: "College Park",
+      };
+
+      let answer = "typeof null &rarr;" + typeof null + "<br>";
+      answer += "typeof undefined &rarr;" + typeof undefined + "<br>";
+      answer +=
+        "Value returned by function &rarr;" + printSchoolName() + "<br>";
+      answer += "apt property does not exist &rarr; " + address["apt"] + "<br>";
+      document.writeln(answer);
+
+      function printSchoolName() {
+        let answer = "UMCP";
+        /* Missing return on purpose */
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Global Attributes</title>
+	<style>
+		table,
+		th,
+		td {
+			border: 0.125em solid black;
+		}
+
+	</style>
+</head>
+
+<body>
+	<h1>Global Attributes</h1>
+	<p contenteditable>This is a paragraph can be modify by the user. Click on
+		this and edit the text.
+	</p>
+	<!-- <hr> creates a horizontal rule -->
+	<hr>
+
+	<h2>Schedule</h2>
+	<table>
+		<tr>
+			<th>Day</th>
+			<th>Supervisor</th>
+		</tr>
+		<tr>
+			<td>Monday</td>
+			<td contenteditable>John (can be changed)</td>
+		</tr>
+	</table>
+
+	<hr>
+	<h2>Todo List (Feel free to add more tasks or edit current ones)</h2>
+	<ol contenteditable>
+		<li>Study</li>
+		<li>Work on the project</li>
+	</ol>
+
+	<hr>
+	<h2>Draggable Image</h2>
+	<p>
+		<img src="testudo.jpg" alt="testudo's image" draggable="true">
+	</p>
+
+	<hr>
+	<h2>Dragged Element Will Be Copied (can copy multiple times)</h2>
+	<div contenteditable dropzone="copy">
+	</div>
+
+	<hr>
+	<h2>To See Hidden</h2>
+	<p>
+		The secret text below is hidden. Edit HTML and remove hidden attribute
+	</p>
+	<h3>Secret Is</h3>
+	<p hidden>
+		The secret is to submit the project early.
+	</p>
+
+	
+</body>
+
+</html>
