@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Example</title>
+  <meta charset="utf-8">
+  <style>
+    #OuterElement {border: 0.25em solid red;}
+    #InnerElement {border: 0.25em solid blue;}
+    #WayInnerElement {border: 0.25em solid green;}
+  </style>
+</head>
+
+<body>
+ 
+  <div id="OuterElement">
+    This text is part of the outer element.<br><br><br>
+    <div id="InnerElement">
+      &nbsp;&nbsp;This text is part of the inner element.<br><br><br>
+      <div id="WayInnerElement">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This text is part of the way inner
+        element :)<br><br><br>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("OuterElement")
+            .addEventListener("click", () => console.log("OuterElement"));
+    document.getElementById("InnerElement")
+            .addEventListener("click", () => console.log("InnerElement"));
+    document.getElementById("WayInnerElement")
+            .addEventListener("click", () => console.log("WayInnerElement"));
+  </script>
+</body>
+
+</html>

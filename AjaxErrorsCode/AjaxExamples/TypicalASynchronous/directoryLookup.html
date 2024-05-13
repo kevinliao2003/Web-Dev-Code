@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>AJAX Example</title>
+
+    <script>
+        "use strict";
+
+        /* Global variables */
+        let requestObj = new XMLHttpRequest();
+        let firstFeedbackMessage = true;
+
+        function lookUpDirectory() {
+            let scriptURL = "directory.php";
+
+            /* Adding name to url */
+            let name = document.getElementById("name").value;
+            scriptURL += "?name=" + name;
+
+            /* Adding random value to url to avoid caching */
+            let randomValueToAvoidCache = (new Date()).getTime();
+            scriptURL += "&randomValue=" + randomValueToAvoidCache;
+
+            let asynch = true; // Asynchronous
+            requestObj.open("GET", scriptURL, asynch);
+
+            /* Setting the function that takes care of the request */
+            requestObj.onreadystatechange = processProgress;
+
+            /* Sending request */
+            requestObj.send(null);
+        }
+
+        /* Callback function */
+        function processProgress() {
+            let feedbackArea = document.getElementById("feedbackArea");
+
+            if (requestObj.readyState === 4) {
+                if (requestObj.status === 200) {
+                    /* Retrieving response */
+                    let results = requestObj.responseText;
+
+                    /* Parsing string response */
+                    let arrayWithResults = results.split("|");
+
+                    /* Updating form elements */
+                    document.getElementById("department").value = arrayWithResults[1];
+                    document.getElementById("office").value = arrayWithResults[2];
+                    feedbackArea.value = "Found";
+                } else {
+                    alert("Request Failed.");
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="processMemo.php" method="post">
+        <h3>After typing name (e.g., Mary), press tab to move to next field</h3>
+        <p>
+            Name: <input type="text" id="name" name="name" onblur="lookUpDirectory()" /><br /><br />
+            Department: <input type="text" id="department" name="department" /><br /><br />
+            Office: <input type="text" id="office" name="office" /><br /><br />
+            Memo Message: <br /><textarea name="message" rows="8" cols="50"></textarea><br />
+            <input type="submit" value="Submit" />
+            <input type="reset" name="Clear" />
+        </p>
+    </form>
+</body>
+
+</html>

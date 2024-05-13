@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        main();
+
+        function main() {
+            try {
+                alert("About to access method");
+                window.terps();
+            } catch (error) {
+                alert("Problem: " + error.message);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Example</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div id="OuterElement">
+    This text is part of the outer element.<br><br><br>
+    <div id="InnerElement">
+      &nbsp;&nbsp;This text is part of the inner element.<br><br><br>
+      <div id="WayInnerElement">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This text is part of the way inner
+        element :)<br><br><br>
+      </div>
+    </div>
+  </div>
+  <script>
+    /* this refers to the element on which the event handler is registered and it does need to be
+     * the element on which the event occurs */
+
+    let outerElement = document.getElementById("OuterElement");
+    let innerElement = document.getElementById("InnerElement");
+    let wayInnerElement = document.getElementById("WayInnerElement");
+
+    outerElement.addEventListener("click", function (event) {
+
+      /* Checking what "this" corresponds to. "this" refers to the element
+         (e.g., outerElement) that the event handler is registered to and 
+         it does not need to be the element on which the event occurs */
+      if (this == outerElement) {
+        alert("this is referring to outerElement");
+      } else if (this == innerElement) {
+        alert("this is referring to innerElement");
+      } else if (this == wayInnerElement) {
+        alert("this is referring to wayInnerElement");
+      } else {
+        alert("other");
+      }
+
+      /* Checking event.target */
+      if (event.target == outerElement) {
+        alert("outerElement was the target");
+      } else if (event.target == innerElement) {
+        alert("innerElement was the target");
+      } else if (event.target == wayInnerElement) {
+        alert("wayInnerElement was the target");
+      } else {
+        alert("Other");
+      }
+    });
+
+    /* Observe what "this" refers to */
+    /* Uncomment the following code after you have run the example above */
+    /*
+    innerElement.addEventListener("click", () => alert("InnerElement: " + this));
+    wayInnerElement.addEventListener("click", function (event) {
+      alert("WayInnerElement" + this);
+    });
+    */
+
+  </script>
+</body>
+
+</html>

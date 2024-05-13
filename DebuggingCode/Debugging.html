@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Debugging Example</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        const college = "UMCP";
+
+        main();
+
+        function maximum(a, b) {
+            let answer;
+
+            if (a > b) {
+                answer = a;
+            } else {
+                answer = b;
+            }
+
+            return answer;
+        }
+
+        function main() {
+            let x = 10, y = 20, result;
+
+            result = maximum(x, 20);
+            document.writeln(`Maximum is ${result}<br>`);
+        }
+        
+    </script>
+</body>
+
+</html>

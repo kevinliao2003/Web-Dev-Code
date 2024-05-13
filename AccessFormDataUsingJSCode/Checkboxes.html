@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Checkboxes</title>
+</head>
+
+<body>
+
+	Indicate what kinds of computers you have.<br>
+	<form>
+		<input type="checkbox" id="laptop">Laptop<br>
+		<input type="checkbox" id="desktop" checked>Desktop<br>
+		<input type="button" id="processDataButton" value="Process" onclick="processData()">
+		<input type="reset" value="Clear">
+	</form>
+
+	<script>
+		function processData() {
+			/* Retrieving the values */
+			let laptopCheckbox = document.getElementById("laptop");
+			let desktopCheckbox = document.getElementById("desktop");
+
+			let message = "";
+			if (laptopCheckbox.checked) {
+				message += "Laptop was selected.\n";
+			} else {
+				message += "Laptop was NOT selected.\n";
+			}
+
+			if (desktopCheckbox.checked) {
+				message += "Desktop was selected.\n";
+			} else {
+				message += "Desktop was NOT selected.\n";
+			}
+
+			alert(message);
+		}
+	</script>
+</body></html>

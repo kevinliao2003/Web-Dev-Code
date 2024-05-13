@@ -1,0 +1,15 @@
+body {
+    font-family: arial, sans-serif;
+}
+
+a {
+    font-size: 2em;
+    color: green;
+}
+
+/* When anchor (a) found inside of li override definition */
+li a {
+    font-size: 3em;
+    font-style: italic;
+    color: red;
+}

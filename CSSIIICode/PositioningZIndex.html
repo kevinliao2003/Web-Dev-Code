@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Positioning Example</title>
+
+    <meta charset="UTF-8">
+
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-size: 1.5rem;
+        }
+        #container {
+            width: 40rem;
+            height: 20rem;
+            border: .25rem solid green;
+            background-color: gray;
+        }
+
+        #par1 {
+            position: relative;
+            top: 5rem;
+            left: 4rem;
+            background-color: orange;
+
+            /* Change to 1 and #par2 z-index to 2 */
+            z-index: 2;
+        }
+
+
+        #par2 {
+            position: relative;
+            top: 2rem;
+            left: 6rem;
+            background-color: aqua;
+
+            /* Change to 2 and #par1 z-index to 1 */
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <p id="par1">
+            Fourth paragraph in the document.
+            Fourth paragraph in the document.
+            Fourth paragraph in the document.
+        </p>
+        <p id="par2">
+            Fifth paragraph in the document.
+            Fifth paragraph in the document.
+            Fifth paragraph in the document.
+        </p>
+    </div>
+</body>
+
+</html>

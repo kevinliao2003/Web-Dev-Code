@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>AJAX Example</title>
+
+    <script>
+        "use strict";
+
+        /* Global variables */
+        let requestObj = new XMLHttpRequest();
+        let firstFeedbackMessage = true;
+
+        function lookUpDirectory() {
+            let scriptURL = "directory.php";
+
+            /* Adding name to url */
+            let name = document.getElementById("name").value;
+            scriptURL += "?name=" + name;
+
+            /* Adding random value to url to avoid caching */
+            let randomValueToAvoidCache = (new Date()).getTime();
+            scriptURL += "&randomValue=" + randomValueToAvoidCache;
+
+            let asynch = false; // SYNCHRONOUS
+            requestObj.open("GET", scriptURL, asynch); // (will wait for response)
+
+            /* Notice that this time we are NOT setting */
+            /* the function that takes care of the request */
+            /* as we will wait for the response */
+
+            /* Sending request (WILL BLOCK) */
+            requestObj.send(null);
+
+            /* Processing response */
+            if (requestObj.status === 200) {
+                /* Retrieving response */
+                let results = requestObj.responseText;
+
+                /* Parsing string response */
+                let arrayWithResults = results.split("|");
+
+                /* Updating form elements */
+                document.getElementById("department").value = arrayWithResults[1];
+                document.getElementById("office").value = arrayWithResults[2];
+                feedbackArea.value = "Found";
+            } else {
+                alert("Request Failed. " + requestObj.status);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="processMemo.php" method="post">
+        <h3>Using Ajax to submit a synchronous request</h3>
+        <h3>After typing name (e.g. Mary), press tab to move to next field</h3>
+        <h3>In this example, the form will freeze as we are waiting for the response</h3>
+        <h3>from the server (5 second delay)</h3>
+        <p>
+            Name: <input type="text" id="name" name="name" onblur="lookUpDirectory()" /><br /><br />
+            Department: <input type="text" id="department" name="department" /><br /><br />
+            Office: <input type="text" id="office" name="office" /><br /><br />
+            Memo Message: <br /><textarea name="message" rows="8" cols="50"></textarea><br />
+            <input type="submit" value="Submit" />
+            <input type="reset" name="Clear" />
+        </p>
+    </form>
+</body>
+
+</html>

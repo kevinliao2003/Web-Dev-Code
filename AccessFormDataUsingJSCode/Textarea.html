@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Text Area</title>
+</head>
+
+<body>
+	<h2>Text Area</h2>
+	<form>
+		<!-- Notice the default text -->
+		<textarea id="request" rows="8" cols="50">Please check my last assignment.</textarea>
+		<br>
+		<input type="button" id="processDataButton" value="Process" onclick="processData()">
+		<input type="reset">
+	</form>
+
+	<script>
+		function processData() {
+			let information = document.getElementById("request");
+			alert("The submitted request is: \n" + information.value);
+		}
+	</script>
+</body></html>

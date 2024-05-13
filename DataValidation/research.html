@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Validation</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="research.css" type="text/css">
+    <script src="code.js" defer></script> <!-- connects JavaScript file to HTML file -->
+</head>
+
+<body>
+    <h1 id="header"><u>Research Form</u></h1>
+
+    <form action="researchProcessing.php" method="get" novalidate>
+        <fieldset> <!-- text on border -->
+            <legend class="brown_text"><b><em>General Information</em></b></legend>
+    
+            <p>
+                Firstname: <input type="text" name="firstname" id="firstname" required>
+                Lastname: <input type="text" name="lastname" id="lastname" required>
+            </p>
+    
+            <p>
+                Phone: <input type="text" name="phoneFirstPart" id="phoneFirstPart" required> 
+                - <input type="text" name="phoneSecondPart" id="phoneSecondPart" required>
+                - <input type="text" name="phoneThirdPart" id="phoneThirdPart" required>
+                Email: <input type="email" name="email" id="email">
+            </p>
+        </fieldset>
+            
+        <fieldset>
+            <legend class="brown_text"><b><em>Research Study Data</em></b></legend>
+    
+            <fieldset>
+                <legend class="brown_text"><b>Age/Height/Weiht</b></legend>
+    
+                <p>
+                    <b>Age:</b>
+                    <input type="number" name="age" id="age" min="1" max="25">
+        
+                    <b>Height:</b>
+                    <em>Feet</em>
+                    <input type="number" name="heightFeet" id="heightFeet" min="2" max="7">
+                    <em>Inches</em>
+                    <input type="number" name="heightInches" id="heightInches" min="0" max="11">
+        
+                    <b>Weight: </b>
+                    <input type="number" name="weight" id="weight" min="1" max="600">
+                </p>
+            </fieldset>
+    
+            <fieldset>
+                <legend class="brown_text"><b>Research Study Data</b></legend>
+    
+                Which of the following conditions are present in your family? (Check all that apply)
+                <p>
+                    <input type="checkbox" name="highBloodPressure" value="highBloodPressure" id="highBloodPressure"> High Blood Pressure
+                    <input type="checkbox" name="diabetes" value="diabetes" id="diabetes"> Diabetes
+                    <input type="checkbox" name="glaucoma" value="glaucoma" id="glaucoma"> Glaucoma
+                    <input type="checkbox" name="asthma" value="asthma" id="asthma"> Asthma
+                    <input type="checkbox" name="none" value="none" id="none"> None
+                </p>
+            </fieldset>
+    
+            <fieldset>
+                <legend class="brown_text"><b>Time Period</b></legend>
+    
+                How long have you experienced any of the above conditions?
+                <p>
+                    <input type="radio" name="period" value="never" id="never"> Never
+                    <input type="radio" name="period" value="lessThanAYear" id="lessThanAYear"> Less than a year
+                    <input type="radio" name="period" value="oneToTwo" id="oneToTwo"> One to two years
+                    <input type="radio" name="period" value="moreThanTwo" id="moreThanTwo"> More than two years
+                </p>
+            </fieldset>
+    
+            <fieldset>
+                <legend class="brown_text"><b>Study Information</b></legend>
+    
+                <p>
+                    Which study are you taking apart of?
+                    <label><select name="studyType">
+                        <option value="clothes" selected>Long Term</option>
+                        <option value="books">Short Term</option>
+                    </select></label>
+    
+                    Assigned Study Id:
+                    <input type="text" name="firstFourDigits" id="firstFourDigits" placeholder="A193" required>
+                    - <input type="text" name="secondFourDigits" id="secondFourDigits" placeholder="B192" required>
+                </p>
+            </fieldset>
+    
+            <fieldset>
+                <legend class="brown_text"><b>Additional Information ()</b></legend>
+    
+                <textarea rows="5" cols="80" name="comments"></textarea>
+            </fieldset>
+        </fieldset>
+    
+        <fieldset>
+            <p>
+                <input type="reset" value="Clear Form">
+                <input type="submit" value="Submit Information" id="submitInfo">
+            </p>
+        </fieldset>
+
+        <hr> <!-- straight line across -->
+        <p class="center">CMSC Research Institute ®</p>
+        <hr> <!-- straight line across -->
+    </form>
+</body>
+
+</html>

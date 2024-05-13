@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Radio Buttons</title>
+</head>
+
+<body>
+	<h2>Radio Buttons</h2>
+	<form>
+		<!-- Notice: using same name but different ids -->
+		<input type="radio" id="radioHS" name="category" value="hs">HS<br>
+		<input type="radio" id="radioUndergraduate" name="category" value="undergraduate">Undergraduate<br>
+		<input type="radio" id="radioGraduate" name="category" value="graduate" checked>Graduate<br>
+		<input type="button" id="processDataButton" value="Process" onclick="processData()">
+		<input type="reset">
+	</form>
+
+	<script>
+		function processData() {
+			let radioButtonsName = "category";
+			alert(`Selection was: ${ getSelection(radioButtonsName)}`);
+		}
+
+		function getSelection(radioButtonsName) {
+			for (let entry of document.getElementsByName("category")) {
+				if (entry.checked) {
+					return entry.value;
+				}
+			}
+		}
+	</script>
+</body></html>

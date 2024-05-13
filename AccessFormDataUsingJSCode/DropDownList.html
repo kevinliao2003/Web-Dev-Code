@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Drow-Down List</title>
+</head>
+
+<body>
+	<h2>Programming Language Preference</h2>
+
+	<form>
+		<select id="preference">
+			<option value="JavaScript">JavaScript</option>
+			<option value="Ruby" selected="selected">Ruby</option>
+			<option value="Python">Python</option>
+		</select>
+
+		<input type="button" id="processDataButton" value="Process" onclick="processData()">
+		<input type="reset">
+	</form>
+
+	<script>
+		function processData() {
+			let id = "preference";
+			let answer = getSelection(id);
+			alert("Option selected: " + answer);
+		}
+		
+		function getSelection(id) {
+			let preference = document.getElementById(id);
+			let optionSelected = preference[preference.selectedIndex].value;
+			
+			return optionSelected;
+		}
+	</script>
+</body></html>

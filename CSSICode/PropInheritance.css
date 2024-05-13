@@ -1,0 +1,13 @@
+article {
+    color: red;
+    border: medium solid;
+}
+
+h2 {
+    color: blue;
+}
+
+article h2 {
+    color: inherit; 
+    /* h2 inside article will be red color (not blue)*/
+}

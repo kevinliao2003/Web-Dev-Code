@@ -1,0 +1,37 @@
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 20px; /* Affect #p2, #p3 */
+	font-family: Arial, Helvetica, serif;
+	width: 50rem;  /* Try 25, 50 , and em */
+	height: 100rem;  /* Try 75, 50 and em */
+} 
+
+/* To get a sense for rem */
+#p1 {
+	font-size: 1rem;
+	border-style: solid;
+	border-color: red;
+}
+
+/* To get a sense for em */
+#p2 {
+	/* Using em, so it will rely on body font-size */
+	font-size: 1em; 
+	border-style: solid;
+	border-color: red;
+}
+
+/* To show <strong> inherits p3's font-size */
+#p3 {
+	font-size: 2em;
+	border-style: solid;
+	border-color: rgb(43, 0, 255);
+}
+
+strong {
+	/* twice font-size of p3 */
+	font-size: 2em; /* equivalent to 8rem */
+}

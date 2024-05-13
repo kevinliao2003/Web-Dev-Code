@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Number, Range, Time</title>
+</head>
+
+<body>
+	<h2>Form Elements (Number/Range/Time)</h2>
+	<form>
+		Enter a number: <input type="number" value="21" min="1" max="120" step="5" id="request">
+		<input type="button" id="process" value="Process Number" onclick="processNumber()"><br><br>
+
+		Enter number in range: <input type="range" id="rangeElem" min="10" max="50">
+		<input type="button" id="processRange" value="Process Range" onclick="processRange1()"><br><br>
+		
+		Enter time <input type="time" id="timeElem" >
+		<input type="button" id="processTime" value="Process Time" onclick="processTime1()"><br><br>
+
+		<input type="reset">
+
+	</form>
+	<h3>Display Area</h3>
+	<div id="display"></div>
+
+	<script>
+		function processNumber() {
+			var age = document.getElementById("request").value;
+			document.getElementById("display").innerHTML = "Age is " + age;
+		}
+
+		function processRange1() {
+			var value = document.getElementById("rangeElem").value;
+			document.getElementById("display").innerHTML = "Range value is " + value;
+		}
+		
+		function processTime1() {
+			var value = document.getElementById("timeElem").value;
+			document.getElementById("display").innerHTML = "Time is " + value;
+		}
+	</script>
+</body></html>

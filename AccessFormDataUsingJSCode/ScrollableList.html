@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Scrollable List</title>
+</head>
+
+<body>
+	<h2>Scrollable List</h2>
+	<h2>Use CTRL KEY To Select Multiple Entries</h2>
+	<form>
+		<select id="preference" multiple size="5">
+			<option value="JavaScript">JavaScript</option>
+			<option value="Ruby" selected>Ruby</option> <!-- default selection -->
+			<option value="PHP">PHP</option>
+			<option value="C++" selected>C++</option> <!-- default selection -->
+			<option value="Pascal">Pascal</option>
+			<option value="Fortran">Fortran</option>
+			<option value="Basic">Basic</option>
+			<option value="Assembly">Assembly</option>
+			<option value="C#">C#</option>
+		</select>
+		<br><br>
+		<input type="button" id="processDataButton" value="Process" onclick="processData()">
+		<input type="reset">
+	</form>
+
+	<script>
+		function processData() {
+			let answer = getSelection();
+			alert("Selection: " + answer);
+		}
+
+		function getSelection() {
+			let optionsArray = document.getElementById("preference").options;
+			let answer = "";
+
+			for (let option of optionsArray) {
+				if (option.selected) {
+					answer += option.value + "|";
+				}
+			}
+		
+			return answer;
+		}
+	</script>
+</body></html>

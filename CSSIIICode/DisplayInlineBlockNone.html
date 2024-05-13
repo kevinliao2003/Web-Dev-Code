@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Display Property</title>
+    <style>
+        #list1 {
+            display: inline; /* Default is inline; use none to remove list */
+        }
+        #list2 a {
+            display: block;
+        }
+
+        #list3 a {
+            display: block;
+            border-style: solid;
+            background-color: yellow;
+            width: 6em; /* Commenting out this property shows block property */
+            text-decoration: none;
+            margin: .25em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>#1 Inline (default) display property for &lt;a&gt;</h2>
+    <div id="list1">
+        <a href="#">Syllabus</a>
+        <a href="#">Schedule</a>
+        <a href="#">Homework</a>
+    </div>
+
+    <h2>#2 Block display property for &lt;a&gt;</h2>
+    <div id="list2">
+        <a href="#">Syllabus</a>
+        <a href="#">Schedule</a>
+        <a href="#">Homework</a>
+    </div>
+
+    <h2>#3 Block display property for &lt;a&gt; border, background color, width,
+        text-decoration, margin, text-align</h2>
+    <div id="list3">
+        <a href="#">Syllabus</a>
+        <a href="#">Schedule</a>
+        <a href="#">Homework</a>
+    </div>
+</body>
+
+</html>

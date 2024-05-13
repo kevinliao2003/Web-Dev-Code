@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Child Selectors</title>
+
+    <style>
+        a:link {
+            color: blue;
+        }
+
+        a[title] {   /* any a with a title attribute */
+            color: green;
+        }
+
+        a[title="news"] { /* any a with title attribute set to "news" */
+            color: red;
+        }
+
+        input[type = "submit"] { color:purple; text-decoration: underline; }
+        input[type = "submit"]:hover { font-size: .75em; } 
+    </style>
+
+<body>
+    <h1>Attribute Selector</h1>
+    <p>
+        <a href="http://www.umd.edu">UMD Page</a><br>
+        <a href="http://www.cs.umd.edu"  title="CS Page">CS Page</a><br>
+        <a href="http://www.umd.edu" title="news">News</a><br><br>
+        <input type="submit">
+    </p>
+</body>
+
+</html>

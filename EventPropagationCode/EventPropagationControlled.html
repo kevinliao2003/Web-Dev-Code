@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Example</title>
+  <meta charset="utf-8">
+  <style>
+    #OuterElement {border: 0.25em solid red;}
+    #InnerElement {border: 0.25em solid blue;}
+    #WayInnerElement {border: 0.25em solid green;}
+  </style>
+</head>
+
+<body>
+  <h1>See console for results after clicking on areas</h1>
+  <div id="OuterElement">
+    This text is part of the outer element.<br><br><br>
+    <div id="InnerElement">
+      &nbsp;&nbsp;This text is part of the inner element.<br><br><br>
+      <div id="WayInnerElement">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This text is part of the way inner
+        element :)<br><br><br>
+      </div>
+    </div>
+  </div>
+  <script>
+    /* We can control which event-handling order we want by using a boolean
+       value in addEventListener. If the value is false (or missing) bubbling 
+       will be used; otherwise capturing */
+    let capturingPhase = false;
+    document.getElementById("OuterElement")
+            .addEventListener("click", () => console.log("OuterElement"), capturingPhase);
+    document.getElementById("InnerElement")
+            .addEventListener("click", () => console.log("InnerElement"), capturingPhase);
+    document.getElementById("WayInnerElement")
+            .addEventListener("click", () => console.log("WayInnerElement"), capturingPhase);
+  </script>
+</body>
+
+</html>

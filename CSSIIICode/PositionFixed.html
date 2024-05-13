@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Positioning</title>
+    <meta charset="UTF-8"> <!-- Can be in uppercase -->
+
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-size: 1.5rem;
+        }
+        * {
+            /* Important: to better understanding positioning, 
+               we are setting the padding and margin of all 
+               elements to zero */
+            padding: 0;
+            margin: 0;
+        }
+
+        p {
+            position: fixed; /* Only change from PositionStatic.html */
+            width: 20rem;
+            border-style: solid;
+
+            /* The following NOW has effect */
+            left: 5rem;  /* try 0 */
+            top: 10rem;   /* try 0 */
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        The first paragraph we see.
+        The first paragraph we see.
+        The first paragraph we see.
+        The first paragraph we see.
+    </p>
+</body>
+
+</html>

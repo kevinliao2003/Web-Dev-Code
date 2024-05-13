@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Positioning</title>
+    <meta charset="UTF-8"> <!-- Can be in uppercase -->
+
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            font-size: 1.5rem;
+        }
+        
+        #container {
+            width:40rem;
+            height:20rem;
+            border: 1rem solid green;
+            display: flex; /* Change to block */
+            flex-direction: row; /* row is the default, try column. row-reverse */
+            align-items: center; /* try center, flex-start, flex-end */
+            flex-wrap: wrap;
+            justify-content: space-around; /* try space-between */
+        }
+
+        #item1 {
+            background-color: red;
+            width:6rem;
+            height:8rem;
+        }
+
+        #item2 {
+            background-color: blue;
+            width:10rem;
+            height:10rem;
+        }
+
+        #item3 {
+            background-color: orange;
+            width:12rem;
+            height:8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+      <p id="item1">
+        First item
+        First item
+      </p>
+      <p id="item2">
+        Second item
+        Second item
+      </p>
+      <p id="item3">
+        Third item
+        Third item
+      </p>
+    </div>
+</body>
+
+</html>

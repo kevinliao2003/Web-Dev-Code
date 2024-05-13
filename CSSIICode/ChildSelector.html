@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Child Selectors</title>
+
+    <style>
+        body p {
+            color: red;
+        }
+
+        div > p {
+            color: blue;
+        }
+
+        div > div {
+            color: green; 
+        }
+    </style>
+
+<body>
+    <h1>Child Selectors</h1>
+    <p>
+        First paragraph
+    </p>
+
+    <div>
+        <p>
+            Paragraph in div
+        </p>
+        <p>
+            Second paragraph in div
+        </p>
+        <div>
+            div child of div
+        </div>
+    </div>
+</body>
+
+</html>

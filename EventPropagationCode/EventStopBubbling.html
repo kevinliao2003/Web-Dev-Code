@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example</title>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <div id="OuterElement">
+      This text is part of the outer element.<br><br><br>
+      <div id="InnerElement">
+        &nbsp;&nbsp;This text is part of the inner element.<br><br><br>
+        <div id="WayInnerElement">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This text is part of the way inner
+          element :)<br><br><br>
+        </div>
+      </div>
+    </div>
+    <script>
+      /* first see behavior without stopping propagation; change to true to stop propagation */
+      let stopPropagation = false;
+
+      document
+        .getElementById("OuterElement")
+        .addEventListener("click", () => alert("OuterElement"));
+
+      document.getElementById("InnerElement").addEventListener("click", (e) => {
+        alert("InnerElement");
+        if (stopPropagation) {
+          e.stopPropagation(); 
+        }
+      });
+
+      document
+        .getElementById("WayInnerElement")
+        .addEventListener("click", () => alert("WayInnerElement"));
+    </script>
+  </body>
+</html>
